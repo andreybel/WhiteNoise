@@ -8,13 +8,13 @@ namespace WhiteNoiseApp.Views
 {
     public class BottomTabbedPage : TabbedPage
     {
-        [System.Obsolete]
         public BottomTabbedPage()
         {
             On<Android>()
                 .SetToolbarPlacement(ToolbarPlacement.Bottom);
-            SelectedTabColor = ColorsHelper.PrimarySelectColor;
-            UnselectedTabColor = ColorsHelper.PrimaryDarkColor;
+            SelectedTabColor = ColorsHelper.SecondaryColor;
+            UnselectedTabColor = Color.White;
+            BarBackgroundColor = ColorsHelper.PrimaryDarkColor;
             BarTextColor = Color.White;
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Prism;
 using Prism.Ioc;
+using Prism.Navigation;
 using Prism.Unity;
 using WhiteNoiseApp.ViewModels;
 using WhiteNoiseApp.Views;
@@ -24,13 +25,25 @@ namespace WhiteNoiseApp
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            var urlNav =
+                $"/{nameof(BottomTabbedPage)}?{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(SoundsPage)}" +
+                $"&{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(PlaySoundPage)}" +
+                $"&{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(FavoritesPage)}";
+
+
+            await NavigationService.NavigateAsync(urlNav);
+            //await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<BottomTabbedPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<SoundsPage, SoundsPageViewModel>();
+            containerRegistry.RegisterForNavigation<PlaySoundPage, PlaySoundPageViewModel>();
+            containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
+            containerRegistry.RegisterForNavigation<MainCarouselPage, MainCarouselPageViewModel>();
         }
     }
 }
