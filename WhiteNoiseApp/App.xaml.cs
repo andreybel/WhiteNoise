@@ -1,5 +1,6 @@
 ﻿using Prism;
 using Prism.Ioc;
+using Prism.Unity;
 using WhiteNoiseApp.ViewModels;
 using WhiteNoiseApp.Views;
 using Xamarin.Forms;
@@ -8,7 +9,7 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace WhiteNoiseApp
 {
-    public partial class App
+    public partial class App: PrismApplication
     {
         /* 
          * The Xamarin Forms XAML Previewer in Visual Studio uses System.Activator.CreateInstance.
