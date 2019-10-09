@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="Xam.Plugin.Iconize" Version="3.5.0.123" />
+    <PackageReference Include="Xam.Plugin.Iconize.FontAwesome" Version="3.5.0.123" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.851321-pre3" />
     <PackageReference Include="Prism.Unity.Forms" Version="7.2.0.1367" />
   </ItemGroup>
 

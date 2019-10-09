@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Prism;
 using Prism.Ioc;
+using Xamarin.Forms;
 
 namespace WhiteNoiseApp.Droid
 {
@@ -13,11 +14,14 @@ namespace WhiteNoiseApp.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            Forms.SetFlags("FastRenderers_Experimental");
+            Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
             LoadApplication(new App(new AndroidInitializer()));
+            System.Diagnostics.Debug.WriteLine("Android launch time");
         }
     }
 

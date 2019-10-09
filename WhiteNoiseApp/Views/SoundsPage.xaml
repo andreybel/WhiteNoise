@@ -1,10 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:helpers="clr-namespace:WhiteNoiseApp.Helpers;assembly=WhiteNoiseApp"
+             xmlns:prism_behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
              x:Class="WhiteNoiseApp.Views.SoundsPage"
-             Title="Sounds">
-    
-  
+             Icon = "{x:Static helpers:ImageNameHelper.Sounds}">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <CollectionView ItemsSource="{Binding SoundSamples}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="3"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center">
+                                    <!--<iconize:IconLabel Text="fas-music" FontSize="Large" TextColor="White"/>-->
+                                    <Label Text="{Binding Name}"/>
+                                </FlexLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

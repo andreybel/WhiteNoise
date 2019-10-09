@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:helpers="clr-namespace:WhiteNoiseApp.Helpers;assembly=WhiteNoiseApp"
              x:Class="WhiteNoiseApp.Views.PlaySoundPage"
-             Title="Play">
+             Icon = "{x:Static helpers:ImageNameHelper.Play}">
   
 </ContentPage>
