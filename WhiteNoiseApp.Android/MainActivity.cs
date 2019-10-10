@@ -14,10 +14,10 @@ namespace WhiteNoiseApp.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            Forms.SetFlags("FastRenderers_Experimental");
-            Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
+            //Forms.SetFlags("FastRenderers_Experimental");
+            Forms.SetFlags("CollectionView_Experimental");
             base.OnCreate(bundle);
-
+            
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
             LoadApplication(new App(new AndroidInitializer()));

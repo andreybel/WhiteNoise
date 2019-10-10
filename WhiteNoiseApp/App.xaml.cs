@@ -1,4 +1,5 @@
-﻿using Prism;
+﻿using Plugin.Iconize;
+using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
 using Prism.Unity;
@@ -33,6 +34,14 @@ namespace WhiteNoiseApp
 
             await NavigationService.NavigateAsync(urlNav);
             //await NavigationService.NavigateAsync("NavigationPage/MainPage");
+        }
+        protected override void Initialize()
+        {
+            base.Initialize();
+            Iconize
+                .With(new Plugin.Iconize.Fonts.FontAwesomeRegularModule())
+                .With(new Plugin.Iconize.Fonts.FontAwesomeSolidModule())
+                .With(new Plugin.Iconize.Fonts.FontAwesomeBrandsModule());
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

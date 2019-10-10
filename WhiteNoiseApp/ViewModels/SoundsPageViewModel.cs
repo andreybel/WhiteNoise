@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using WhiteNoiseApp.Models;
+using WhiteNoiseApp.Views;
 using Xamarin.Forms;
 
 namespace WhiteNoiseApp.ViewModels
@@ -53,6 +54,16 @@ namespace WhiteNoiseApp.ViewModels
             set => SetProperty(ref _soundSamples, value);
         }
 
+        #endregion
+        #region commands
+        private DelegateCommand _playSoundCommand;
+
+        public DelegateCommand PlaySoundCommand => (_playSoundCommand ?? (_playSoundCommand = new DelegateCommand(OnPlaySound)));
+
+        private async void OnPlaySound()
+        {
+           await _navigationService.NavigateAsync(nameof(PlaySoundPage));
+        }
         #endregion
     }
 }       

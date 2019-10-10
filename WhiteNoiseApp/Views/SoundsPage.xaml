@@ -12,18 +12,21 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <CollectionView ItemsSource="{Binding SoundSamples}">
+                <CollectionView ItemsSource="{Binding SoundSamples}"
+                                SelectionMode="None" 
+                                SelectedItem="{Binding SelectedSound}">
                     <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" Span="3"/>
+                        <GridItemsLayout Orientation="Vertical" 
+                                         Span="2"
+                                         VerticalItemSpacing="50"/>
                     </CollectionView.ItemsLayout>
+                    
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
-                                <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center">
-                                    <!--<iconize:IconLabel Text="fas-music" FontSize="Large" TextColor="White"/>-->
-                                    <Label Text="{Binding Name}"/>
-                                </FlexLayout>
-                            </ViewCell>
+                            <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center">
+                                <iconize:IconLabel Text="fas-music" FontSize="Large" TextColor="White"/>
+                                <Label Text="{Binding Name}" FontSize="Medium" TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
+                            </FlexLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
