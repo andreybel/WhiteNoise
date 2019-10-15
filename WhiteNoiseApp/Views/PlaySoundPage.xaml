@@ -4,7 +4,15 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:helpers="clr-namespace:WhiteNoiseApp.Helpers;assembly=WhiteNoiseApp"
+             xmlns:effects="clr-namespace:WhiteNoiseApp.Effects;assembly=WhiteNoiseApp"
              x:Class="WhiteNoiseApp.Views.PlaySoundPage"
              Icon = "{x:Static helpers:ImageNameHelper.Play}">
-  
+    <ContentPage.Content>
+        <ScrollView>
+            <effects:GradientBackgroundEffect StartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
+                                              EndColor="{x:Static helpers:ColorsHelper.GradientEndColorSecondary}">
+                
+            </effects:GradientBackgroundEffect>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

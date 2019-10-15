@@ -73,6 +73,8 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Effects\BaseEffect.cs" />
+    <Compile Include="Effects\GradientBackgroundPlatformEffect.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

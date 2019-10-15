@@ -4,33 +4,38 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:helpers="clr-namespace:WhiteNoiseApp.Helpers;assembly=WhiteNoiseApp"
              xmlns:prism_behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:effects="clr-namespace:WhiteNoiseApp.Effects;assembly=WhiteNoiseApp"
+             xmlns:controls="clr-namespace:WhiteNoiseApp.Controls;assembly=WhiteNoiseApp"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
              x:Class="WhiteNoiseApp.Views.SoundsPage"
+             NavigationPage.HasNavigationBar="False"
              Icon = "{x:Static helpers:ImageNameHelper.Sounds}">
-
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <CollectionView ItemsSource="{Binding SoundSamples}"
-                                SelectionMode="None" 
+            <effects:GradientBackgroundEffect StartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
+                                              EndColor="{x:Static helpers:ColorsHelper.GradientEndColor}">
+                <StackLayout Margin="15">
+                    <CollectionView ItemsSource="{Binding SoundSamples, Mode=TwoWay}"
+                                SelectionMode="None"
                                 SelectedItem="{Binding SelectedSound}">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" 
-                                         Span="2"
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" 
+                                         Span="3"
                                          VerticalItemSpacing="50"/>
-                    </CollectionView.ItemsLayout>
-                    
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center">
-                                <iconize:IconLabel Text="fas-music" FontSize="Large" TextColor="White"/>
-                                <Label Text="{Binding Name}" FontSize="Medium" TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
-                            </FlexLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </StackLayout>
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center">
+                                    <iconize:IconLabel Text="{Binding Icon}" FontSize="35" TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
+                                    <Label Text="{Binding Name}" FontSize="Medium" TextColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"/>
+                                </FlexLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </effects:GradientBackgroundEffect>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

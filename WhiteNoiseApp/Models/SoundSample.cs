@@ -8,6 +8,7 @@ namespace WhiteNoiseApp.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public string Icon { get; set; }
         public string Description { get; set; }
         public bool IsFavorites { get; set; }
 

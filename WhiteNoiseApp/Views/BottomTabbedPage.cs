@@ -14,7 +14,7 @@ namespace WhiteNoiseApp.Views
                 .SetToolbarPlacement(ToolbarPlacement.Bottom);
             SelectedTabColor = ColorsHelper.SecondaryColor;
             UnselectedTabColor = Color.White;
-            BarBackgroundColor = ColorsHelper.PrimaryDarkColor;
+            BarBackgroundColor = ColorsHelper.PrimaryColor;
             BarTextColor = Color.White;
         }
     }

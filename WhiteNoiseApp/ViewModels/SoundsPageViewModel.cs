@@ -25,18 +25,18 @@ namespace WhiteNoiseApp.ViewModels
             _pageDialogService = pageDialogService;
             SoundSamples = new ObservableCollection<SoundSample>
             {
-                new SoundSample{Name="relax"},
-                new SoundSample{Name="nature"},
-                new SoundSample{Name="piano"},
-                new SoundSample{Name="wind"},
-                new SoundSample{Name="rain"},
-                new SoundSample{Name="sea"},
-                new SoundSample{Name="city"},
-                new SoundSample{Name="space"},
-                new SoundSample{Name="aimals"},
-                new SoundSample{Name="birds"},
-                new SoundSample{Name="technick"},
-                new SoundSample{Name="random"},
+                new SoundSample{Name="relax", Icon = "fas-music"},
+                new SoundSample{Name="nature", Icon="fas-tree"},
+                new SoundSample{Name="piano", Icon = "fas-music"},
+                new SoundSample{Name="wind", Icon="fas-wind"},
+                new SoundSample{Name="rain", Icon="fas-cloud-rain"},
+                new SoundSample{Name="sea", Icon = "fas-water"},
+                new SoundSample{Name="city", Icon = "fas-city"},
+                new SoundSample{Name="space", Icon = "fas-moon"},
+                new SoundSample{Name="animals", Icon = "fas-cat"},
+                new SoundSample{Name="birds", Icon = "fas-dragon"},
+                new SoundSample{Name="technick", Icon = "fas-blender-phone"},
+                new SoundSample{Name="random", Icon = "fas-random"},
             };
         }
 
