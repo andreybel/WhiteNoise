@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Prism;
 using Prism.Ioc;
+using WhiteNoiseApp.Interfaces;
 using Xamarin.Forms;
 
 namespace WhiteNoiseApp.Droid

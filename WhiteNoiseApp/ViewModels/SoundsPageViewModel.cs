@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using WhiteNoiseApp.Models;
+using WhiteNoiseApp.Resources;
 using WhiteNoiseApp.Views;
 using Xamarin.Forms;
 
@@ -25,18 +26,18 @@ namespace WhiteNoiseApp.ViewModels
             _pageDialogService = pageDialogService;
             SoundSamples = new ObservableCollection<SoundSample>
             {
-                new SoundSample{Name="relax", Icon = "fas-music"},
-                new SoundSample{Name="nature", Icon="fas-tree"},
-                new SoundSample{Name="piano", Icon = "fas-music"},
-                new SoundSample{Name="wind", Icon="fas-wind"},
-                new SoundSample{Name="rain", Icon="fas-cloud-rain"},
-                new SoundSample{Name="sea", Icon = "fas-water"},
-                new SoundSample{Name="city", Icon = "fas-city"},
-                new SoundSample{Name="space", Icon = "fas-moon"},
-                new SoundSample{Name="animals", Icon = "fas-cat"},
-                new SoundSample{Name="birds", Icon = "fas-dragon"},
-                new SoundSample{Name="technick", Icon = "fas-blender-phone"},
-                new SoundSample{Name="random", Icon = "fas-random"},
+                new SoundSample{Name=AppResource.Relax, Icon = "fas-music"},
+                new SoundSample{Name=AppResource.Nature, Icon="fas-tree"},
+                new SoundSample{Name=AppResource.Piano, Icon = "fas-music"},
+                new SoundSample{Name=AppResource.Wind, Icon="fas-wind"},
+                new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-rain"},
+                new SoundSample{Name=AppResource.Sea, Icon = "fas-water"},
+                new SoundSample{Name=AppResource.City, Icon = "fas-city"},
+                new SoundSample{Name=AppResource.Space, Icon = "fas-moon"},
+                new SoundSample{Name=AppResource.Animals, Icon = "fas-cat"},
+                new SoundSample{Name=AppResource.Birds, Icon = "fas-dragon"},
+                new SoundSample{Name=AppResource.Technick, Icon = "fas-blender-phone"},
+                new SoundSample{Name=AppResource.Random, Icon = "fas-random"},
             };
         }
 
@@ -63,6 +64,7 @@ namespace WhiteNoiseApp.ViewModels
         private async void OnPlaySound()
         {
            await _navigationService.NavigateAsync(nameof(PlaySoundPage));
+            await _pageDialogService.DisplayAlertAsync("OOOPS","","OK");
         }
         #endregion
     }

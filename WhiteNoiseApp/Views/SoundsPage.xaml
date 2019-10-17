@@ -6,6 +6,8 @@
              xmlns:prism_behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              xmlns:effects="clr-namespace:WhiteNoiseApp.Effects;assembly=WhiteNoiseApp"
              xmlns:controls="clr-namespace:WhiteNoiseApp.Controls;assembly=WhiteNoiseApp"
+             xmlns:resources="clr-namespace:WhiteNoiseApp.Resources;assembly=WhiteNoiseApp"
+             xmlns:behaviors="clr-namespace:WhiteNoiseApp.Behaviors;assembly=WhiteNoiseApp"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
              x:Class="WhiteNoiseApp.Views.SoundsPage"
@@ -15,8 +17,11 @@
         <ScrollView>
             <effects:GradientBackgroundEffect StartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
                                               EndColor="{x:Static helpers:ColorsHelper.GradientEndColor}">
+                <Label Style="{StaticResource HeaderLabel}" 
+                       Text="{x:Static resources:AppResource.Collection}"/>
+
                 <StackLayout Margin="15">
-                    <CollectionView ItemsSource="{Binding SoundSamples, Mode=TwoWay}"
+                    <CollectionView ItemsSource="{Binding SoundSamples, Mode=TwoWay}" 
                                 SelectionMode="None"
                                 SelectedItem="{Binding SelectedSound}">
                         <CollectionView.ItemsLayout>
@@ -28,8 +33,14 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center">
-                                    <iconize:IconLabel Text="{Binding Icon}" FontSize="35" TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
-                                    <Label Text="{Binding Name}" FontSize="Medium" TextColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"/>
+                                    <FlexLayout.Behaviors>
+                                        <behaviors:AnimationBehavior AnimationType="Fade"
+                                                                     Command="{Binding PlaySoundCommand}"/>
+                                    </FlexLayout.Behaviors>
+                                    <iconize:IconLabel Text="{Binding Icon}" FontSize="30" 
+                                                       TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
+                                    <Label Text="{Binding Name}" FontSize="Medium" 
+                                           TextColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"/>
                                 </FlexLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>

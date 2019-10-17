@@ -11,6 +11,16 @@
                 <Setter Property="BackgroundColor"
                         Value="{x:Static helpers:ColorsHelper.PrimaryColor}"/>
             </Style>-->
+            <Style TargetType="Label" x:Key="HeaderLabel">
+                <Setter Property="FontSize"
+                        Value="30"/>
+                <Setter Property="TextColor"
+                        Value="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
+                <!--<Setter Property="FontAttributes"
+                        Value="Bold"/>-->
+                <Setter Property="HorizontalOptions"
+                        Value="Center"/>
+            </Style>
         </ResourceDictionary>
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>
