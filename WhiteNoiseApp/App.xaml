@@ -7,17 +7,27 @@
              x:Class="WhiteNoiseApp.App">
     <prism:PrismApplication.Resources>
         <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="roboto">
+                <On Platform="Android" Value="Roboto-Regular.ttf#Roboto-Regular"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="montserrat">
+                <On Platform="Android" Value="Montserrat-Medium.ttf#Montserrat-Medium"/>
+            </OnPlatform>
             <!--<Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor"
                         Value="{x:Static helpers:ColorsHelper.PrimaryColor}"/>
             </Style>-->
+            <Style TargetType="Label">
+                <Setter Property="FontFamily"
+                        Value="{StaticResource montserrat}"/>
+            </Style>
             <Style TargetType="Label" x:Key="HeaderLabel">
                 <Setter Property="FontSize"
                         Value="30"/>
                 <Setter Property="TextColor"
                         Value="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
-                <!--<Setter Property="FontAttributes"
-                        Value="Bold"/>-->
+                <Setter Property="FontFamily"
+                        Value="{StaticResource montserrat}"/>
                 <Setter Property="HorizontalOptions"
                         Value="Center"/>
             </Style>

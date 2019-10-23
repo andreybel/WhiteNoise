@@ -129,6 +129,9 @@
   <data name="Collection" xml:space="preserve">
     <value>Коллекция</value>
   </data>
+  <data name="MySample" xml:space="preserve">
+    <value>записать</value>
+  </data>
   <data name="Nature" xml:space="preserve">
     <value>природа</value>
   </data>

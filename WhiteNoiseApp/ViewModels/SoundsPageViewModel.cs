@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Navigation.TabbedPages;
 using Prism.Services;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,6 @@ namespace WhiteNoiseApp.ViewModels
             {
                 new SoundSample{Name=AppResource.Relax, Icon = "fas-music"},
                 new SoundSample{Name=AppResource.Nature, Icon="fas-tree"},
-                new SoundSample{Name=AppResource.Piano, Icon = "fas-music"},
                 new SoundSample{Name=AppResource.Wind, Icon="fas-wind"},
                 new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-rain"},
                 new SoundSample{Name=AppResource.Sea, Icon = "fas-water"},
@@ -38,6 +38,7 @@ namespace WhiteNoiseApp.ViewModels
                 new SoundSample{Name=AppResource.Birds, Icon = "fas-dragon"},
                 new SoundSample{Name=AppResource.Technick, Icon = "fas-blender-phone"},
                 new SoundSample{Name=AppResource.Random, Icon = "fas-random"},
+                new SoundSample{Name=AppResource.MySample, Icon = "fas-microphone-alt"},
             };
         }
 
@@ -59,12 +60,14 @@ namespace WhiteNoiseApp.ViewModels
         #region commands
         private DelegateCommand _playSoundCommand;
 
-        public DelegateCommand PlaySoundCommand => (_playSoundCommand ?? (_playSoundCommand = new DelegateCommand(OnPlaySound)));
+        public DelegateCommand PlaySoundCommand => (_playSoundCommand ?? 
+            (_playSoundCommand = new DelegateCommand(OnPlaySound, () => SelectedSound != null).ObservesProperty(() => SelectedSound)));
 
         private async void OnPlaySound()
         {
-           await _navigationService.NavigateAsync(nameof(PlaySoundPage));
-            await _pageDialogService.DisplayAlertAsync("OOOPS","","OK");
+            var parameter = new NavigationParameters();
+            parameter.Add("PlaySoundPage",SelectedSound);
+            await _navigationService.SelectTabAsync(nameof(PlaySoundPage), parameter);
         }
         #endregion
     }

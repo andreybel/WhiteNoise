@@ -10,8 +10,9 @@
     <ContentPage.Content>
         <ScrollView>
             <effects:GradientBackgroundEffect StartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
-                                              EndColor="{x:Static helpers:ColorsHelper.GradientEndColorSecondary}">
-                
+                                              EndColor="#68b3be">
+                <Label Text="{Binding SoundSample.Name}" Style="{StaticResource HeaderLabel}"/>
+
             </effects:GradientBackgroundEffect>
         </ScrollView>
     </ContentPage.Content>

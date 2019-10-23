@@ -12,6 +12,7 @@
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
              x:Class="WhiteNoiseApp.Views.SoundsPage"
              NavigationPage.HasNavigationBar="False"
+             x:Name="this"
              Icon = "{x:Static helpers:ImageNameHelper.Sounds}">
     <ContentPage.Content>
         <ScrollView>
@@ -35,9 +36,11 @@
                                 <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center">
                                     <FlexLayout.Behaviors>
                                         <behaviors:AnimationBehavior AnimationType="Fade"
-                                                                     Command="{Binding PlaySoundCommand}"/>
+                                                         Command="{Binding Source={x:Reference this}, Path=BindingContext.PlaySoundCommand}"
+                                                         CommandParameter="{Binding .}"/>
                                     </FlexLayout.Behaviors>
-                                    <iconize:IconLabel Text="{Binding Icon}" FontSize="30" 
+                                    <iconize:IconLabel Text="{Binding Icon}" 
+                                                       FontSize="30"
                                                        TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
                                     <Label Text="{Binding Name}" FontSize="Medium" 
                                            TextColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"/>

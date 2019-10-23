@@ -97,6 +97,15 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на my sample.
+        /// </summary>
+        internal static string MySample {
+            get {
+                return ResourceManager.GetString("MySample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на nature.
         /// </summary>
         internal static string Nature {
