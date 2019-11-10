@@ -97,6 +97,15 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на bonfire.
+        /// </summary>
+        internal static string Fire {
+            get {
+                return ResourceManager.GetString("Fire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на my sample.
         /// </summary>
         internal static string MySample {
@@ -165,6 +174,15 @@ namespace WhiteNoiseApp.Resources {
         internal static string Space {
             get {
                 return ResourceManager.GetString("Space", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на storm.
+        /// </summary>
+        internal static string Storm {
+            get {
+                return ResourceManager.GetString("Storm", resourceCulture);
             }
         }
         

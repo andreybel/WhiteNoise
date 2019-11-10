@@ -27,15 +27,15 @@ namespace WhiteNoiseApp.ViewModels
             _pageDialogService = pageDialogService;
             SoundSamples = new ObservableCollection<SoundSample>
             {
-                new SoundSample{Name=AppResource.Relax, Icon = "fas-music"},
+                new SoundSample{Name=AppResource.Fire, Icon = "fas-fire"},
                 new SoundSample{Name=AppResource.Nature, Icon="fas-tree"},
-                new SoundSample{Name=AppResource.Wind, Icon="fas-wind"},
-                new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-rain"},
+                new SoundSample{Name=AppResource.Storm, Icon="fas-poo-storm"},
+                new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-moon-rain"},
                 new SoundSample{Name=AppResource.Sea, Icon = "fas-water"},
                 new SoundSample{Name=AppResource.City, Icon = "fas-city"},
                 new SoundSample{Name=AppResource.Space, Icon = "fas-moon"},
                 new SoundSample{Name=AppResource.Animals, Icon = "fas-cat"},
-                new SoundSample{Name=AppResource.Birds, Icon = "fas-dragon"},
+                new SoundSample{Name=AppResource.Birds, Icon = "fas-dove"},
                 new SoundSample{Name=AppResource.Technick, Icon = "fas-blender-phone"},
                 new SoundSample{Name=AppResource.Random, Icon = "fas-random"},
                 new SoundSample{Name=AppResource.MySample, Icon = "fas-microphone-alt"},
@@ -58,16 +58,15 @@ namespace WhiteNoiseApp.ViewModels
 
         #endregion
         #region commands
-        private DelegateCommand _playSoundCommand;
+        private DelegateCommand<SoundSample>_playSoundCommand;
 
-        public DelegateCommand PlaySoundCommand => (_playSoundCommand ?? 
-            (_playSoundCommand = new DelegateCommand(OnPlaySound, () => SelectedSound != null).ObservesProperty(() => SelectedSound)));
+        public DelegateCommand<SoundSample> PlaySoundCommand => (_playSoundCommand ?? 
+            (_playSoundCommand = new DelegateCommand<SoundSample>(OnPlaySound)));
 
-        private async void OnPlaySound()
+        private async void OnPlaySound(SoundSample soundSample)
         {
-            var parameter = new NavigationParameters();
-            parameter.Add("PlaySoundPage",SelectedSound);
-            await _navigationService.SelectTabAsync(nameof(PlaySoundPage), parameter);
+            await _navigationService.NavigateAsync(nameof(PlayerPage)
+                , new NavigationParameters{ { nameof(SoundSample), soundSample }});
         }
         #endregion
     }

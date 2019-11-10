@@ -129,6 +129,9 @@
   <data name="Collection" xml:space="preserve">
     <value>Коллекция</value>
   </data>
+  <data name="Fire" xml:space="preserve">
+    <value>костёр</value>
+  </data>
   <data name="MySample" xml:space="preserve">
     <value>записать</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="Space" xml:space="preserve">
     <value>космос</value>
+  </data>
+  <data name="Storm" xml:space="preserve">
+    <value>гроза</value>
   </data>
   <data name="Technick" xml:space="preserve">
     <value>техника</value>

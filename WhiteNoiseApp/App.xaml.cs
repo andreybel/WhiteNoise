@@ -59,6 +59,7 @@ namespace WhiteNoiseApp
             containerRegistry.RegisterForNavigation<PlaySoundPage, PlaySoundPageViewModel>();
             containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
             containerRegistry.RegisterForNavigation<MainCarouselPage, MainCarouselPageViewModel>();
+            containerRegistry.RegisterForNavigation<PlayerPage, PlayerPageViewModel>();
         }
     }
 }

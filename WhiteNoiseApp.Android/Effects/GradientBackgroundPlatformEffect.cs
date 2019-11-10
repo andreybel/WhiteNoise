@@ -9,7 +9,9 @@ using WhiteNoiseApp.Effects;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
+#pragma warning disable CS0612 // Тип или член устарел
 [assembly: ExportRenderer(typeof(GradientBackgroundEffect), typeof(GradientBackgroundPlatformEffect))]
+#pragma warning restore CS0612 // Тип или член устарел
 namespace WhiteNoiseApp.Droid.Effects
 {
     [Obsolete]

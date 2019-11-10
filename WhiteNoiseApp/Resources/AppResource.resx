@@ -129,6 +129,9 @@
   <data name="Collection" xml:space="preserve">
     <value>collection</value>
   </data>
+  <data name="Fire" xml:space="preserve">
+    <value>bonfire</value>
+  </data>
   <data name="MySample" xml:space="preserve">
     <value>my sample</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="Space" xml:space="preserve">
     <value>space</value>
+  </data>
+  <data name="Storm" xml:space="preserve">
+    <value>storm</value>
   </data>
   <data name="Technick" xml:space="preserve">
     <value>technick</value>

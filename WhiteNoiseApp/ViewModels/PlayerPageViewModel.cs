@@ -8,9 +8,9 @@ using WhiteNoiseApp.Models;
 
 namespace WhiteNoiseApp.ViewModels
 {
-    public class PlaySoundPageViewModel : BindableBase, INavigationAware, IDestructible
+    public class PlayerPageViewModel : BindableBase, INavigationAware, IDestructible
     {
-        public PlaySoundPageViewModel()
+        public PlayerPageViewModel()
         {
 
         }

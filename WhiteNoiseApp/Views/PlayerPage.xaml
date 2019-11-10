@@ -5,8 +5,8 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:helpers="clr-namespace:WhiteNoiseApp.Helpers;assembly=WhiteNoiseApp"
              xmlns:effects="clr-namespace:WhiteNoiseApp.Effects;assembly=WhiteNoiseApp"
-             x:Class="WhiteNoiseApp.Views.PlaySoundPage"
-             Icon = "{x:Static helpers:ImageNameHelper.Record}">
+             x:Class="WhiteNoiseApp.Views.PlayerPage"
+             Icon = "{x:Static helpers:ImageNameHelper.Play}">
     <ContentPage.Content>
         <ScrollView>
             <effects:GradientBackgroundEffect StartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
