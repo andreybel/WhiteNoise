@@ -20,6 +20,7 @@ namespace WhiteNoiseApp.Droid
             base.OnCreate(bundle);
             
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            XamEffects.Droid.Effects.Init();
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
             LoadApplication(new App(new AndroidInitializer()));
             System.Diagnostics.Debug.WriteLine("Android launch time");

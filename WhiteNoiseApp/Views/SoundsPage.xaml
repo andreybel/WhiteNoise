@@ -10,6 +10,7 @@
              xmlns:behaviors="clr-namespace:WhiteNoiseApp.Behaviors;assembly=WhiteNoiseApp"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
+             xmlns:xeffects="clr-namespace:XamEffects;assembly=XamEffects"
              x:Class="WhiteNoiseApp.Views.SoundsPage"
              NavigationPage.HasNavigationBar="False"
              x:Name="this"
@@ -33,12 +34,16 @@
 
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center">
-                                    <FlexLayout.Behaviors>
+                                <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center"
+                                            xeffects:TouchEffect.Color="LightGray"
+                                            xeffects:EffectsConfig.ChildrenInputTransparent="True"
+                                            xeffects:Commands.Tap="{Binding Source={x:Reference this}, Path=BindingContext.PlaySoundCommand}"
+                                            xeffects:Commands.TapParameter="{Binding .}">
+                                    <!--<FlexLayout.Behaviors>
                                         <behaviors:AnimationBehavior AnimationType="Fade"
                                                          Command="{Binding Source={x:Reference this}, Path=BindingContext.PlaySoundCommand}"
                                                          CommandParameter="{Binding .}"/>
-                                    </FlexLayout.Behaviors>
+                                    </FlexLayout.Behaviors>-->
                                     <iconize:IconLabel Text="{Binding Icon}" 
                                                        FontSize="30"
                                                        TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>

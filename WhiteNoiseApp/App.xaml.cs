@@ -1,4 +1,7 @@
-﻿using Plugin.Iconize;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Plugin.Iconize;
 using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
@@ -60,6 +63,13 @@ namespace WhiteNoiseApp
             containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
             containerRegistry.RegisterForNavigation<MainCarouselPage, MainCarouselPageViewModel>();
             containerRegistry.RegisterForNavigation<PlayerPage, PlayerPageViewModel>();
+        }
+
+        protected override void OnStart()
+        {
+            AppCenter.Start("android=d795e1c8-369c-48e1-b99f-31b8e408dec1;", 
+                  typeof(Analytics), typeof(Crashes));
+            base.OnStart();
         }
     }
 }
