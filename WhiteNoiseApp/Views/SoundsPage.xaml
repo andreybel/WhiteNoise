@@ -34,22 +34,27 @@
 
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="Center"
-                                            xeffects:TouchEffect.Color="LightGray"
+                                <Grid
+                                     xeffects:TouchEffect.Color="{x:Static helpers:ColorsHelper.TapEffectColor}"
                                             xeffects:EffectsConfig.ChildrenInputTransparent="True"
                                             xeffects:Commands.Tap="{Binding Source={x:Reference this}, Path=BindingContext.PlaySoundCommand}"
                                             xeffects:Commands.TapParameter="{Binding .}">
-                                    <!--<FlexLayout.Behaviors>
-                                        <behaviors:AnimationBehavior AnimationType="Fade"
-                                                         Command="{Binding Source={x:Reference this}, Path=BindingContext.PlaySoundCommand}"
-                                                         CommandParameter="{Binding .}"/>
-                                    </FlexLayout.Behaviors>-->
-                                    <iconize:IconLabel Text="{Binding Icon}" 
+                                    <Grid.RowDefinitions >
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <iconize:IconLabel Grid.Row="0"
+                                                       Padding="5"
+                                                       HorizontalOptions="Center"
+                                                       Text="{Binding Icon}" 
                                                        FontSize="30"
                                                        TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
-                                    <Label Text="{Binding Name}" FontSize="Medium" 
+                                    <Label Grid.Row="1" 
+                                           HorizontalOptions="Center"
+                                           Text="{Binding Name}" 
+                                           FontSize="Medium" 
                                            TextColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"/>
-                                </FlexLayout>
+                                </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>

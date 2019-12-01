@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using MediaManager;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
@@ -29,10 +30,13 @@ namespace WhiteNoiseApp.ViewModels
 
         }
 
-        public void OnNavigatedTo(INavigationParameters parameters)
+        public async void OnNavigatedTo(INavigationParameters parameters)
         {
             SoundSample = parameters[nameof(SoundSample)] as SoundSample;
+            await CrossMediaManager.Current.PlayFromResource("assets:///rain.mp3");
+            //await CrossMediaManager.Current.PlayFromResource("rain.mp3");
         }
+
         public void Destroy()
         {
 
