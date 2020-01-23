@@ -8,6 +8,7 @@
              xmlns:controls="clr-namespace:WhiteNoiseApp.Controls;assembly=WhiteNoiseApp"
              xmlns:resources="clr-namespace:WhiteNoiseApp.Resources;assembly=WhiteNoiseApp"
              xmlns:behaviors="clr-namespace:WhiteNoiseApp.Behaviors;assembly=WhiteNoiseApp"
+             xmlns:converters="clr-namespace:WhiteNoiseApp.Converters;assembly=WhiteNoiseApp"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
              xmlns:xeffects="clr-namespace:XamEffects;assembly=XamEffects"
@@ -15,51 +16,102 @@
              NavigationPage.HasNavigationBar="False"
              x:Name="this"
              Icon = "{x:Static helpers:ImageNameHelper.Sounds}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="iconize:IconLabel" x:Key="playerControl">
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="xeffects:TouchEffect.Color" Value="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
-            <effects:GradientBackgroundEffect StartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
-                                              EndColor="{x:Static helpers:ColorsHelper.GradientEndColor}">
-                <Label Style="{StaticResource HeaderLabel}" 
+        <effects:GradientBackgroundEffect StartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
+                                              EndColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}">
+            <Grid Margin="16,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Style="{StaticResource HeaderLabel}"  
                        Text="{x:Static resources:AppResource.Collection}"/>
-
-                <StackLayout Margin="15">
-                    <CollectionView ItemsSource="{Binding SoundSamples, Mode=TwoWay}" 
+                <CollectionView Grid.Row="1"
+                                ItemsSource="{Binding SoundSamples, Mode=TwoWay}" 
                                 SelectionMode="None"
                                 SelectedItem="{Binding SelectedSound}">
-                        <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Vertical" 
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" 
                                          Span="3"
-                                         VerticalItemSpacing="50"/>
-                        </CollectionView.ItemsLayout>
+                                         VerticalItemSpacing="5"
+                                         HorizontalItemSpacing="5"/>
+                    </CollectionView.ItemsLayout>
 
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid
-                                     xeffects:TouchEffect.Color="{x:Static helpers:ColorsHelper.TapEffectColor}"
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid 
+                                            xeffects:TouchEffect.Color="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"
                                             xeffects:EffectsConfig.ChildrenInputTransparent="True"
                                             xeffects:Commands.Tap="{Binding Source={x:Reference this}, Path=BindingContext.PlaySoundCommand}"
                                             xeffects:Commands.TapParameter="{Binding .}">
                                     <Grid.RowDefinitions >
                                         <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="25"/>
                                     </Grid.RowDefinitions>
                                     <iconize:IconLabel Grid.Row="0"
                                                        Padding="5"
                                                        HorizontalOptions="Center"
                                                        Text="{Binding Icon}" 
-                                                       FontSize="30"
-                                                       TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
+                                                       FontSize="33"
+                                                       TextColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"/>
                                     <Label Grid.Row="1" 
                                            HorizontalOptions="Center"
                                            Text="{Binding Name}" 
-                                           FontSize="Medium" 
-                                           TextColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"/>
+                                           FontSize="16" 
+                                           TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}" Opacity=".95"/>
                                 </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </StackLayout>
-            </effects:GradientBackgroundEffect>
-        </ScrollView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Frame Grid.Row="2" 
+                       IsVisible="{Binding IsPlaying}"
+                    Style="{StaticResource PlayerFrame}">
+                    <Grid Margin="0" Padding="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45"/>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="45"/>
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconLabel Grid.Column="0"
+                                           FontSize="35"
+                                            Text="fas-stop-circle"
+                                           Style="{x:StaticResource playerControl}"
+                                           xeffects:Commands.Tap="{Binding StopCommand}"/>
+                        <iconize:IconLabel Grid.Column="1"
+                                           Text="fas-pause"
+                                           IsVisible="{Binding IsPaused}"
+                                           Style="{x:StaticResource playerControl}"
+                                           xeffects:Commands.Tap="{Binding PauseCommand}"/>
+                        <iconize:IconLabel Grid.Column="1"
+                                           Text="fas-play"
+                                           IsVisible="{Binding IsPaused, Converter={converters:InverseBooleanConverter}}"
+                                           Style="{x:StaticResource playerControl}"
+                                           xeffects:Commands.Tap="{Binding PauseCommand}"/>
+                        <Slider Grid.Column="2" 
+                                VerticalOptions="Center"
+                                ThumbColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
+                        <iconize:IconLabel Grid.Column="3"
+                                           Text="fas-wrench"
+                                           Style="{x:StaticResource playerControl}"
+                                           xeffects:Commands.Tap="{Binding SettingsCommand}"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </effects:GradientBackgroundEffect>
     </ContentPage.Content>
 </ContentPage>

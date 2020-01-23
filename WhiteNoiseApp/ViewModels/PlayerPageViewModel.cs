@@ -34,7 +34,8 @@ namespace WhiteNoiseApp.ViewModels
         {
             SoundSample = parameters[nameof(SoundSample)] as SoundSample;
             await CrossMediaManager.Current.PlayFromResource("assets:///rain.mp3");
-            //await CrossMediaManager.Current.PlayFromResource("rain.mp3");
+            //await CrossMediaManager.Current.Play("https://www.liquidmindmusic.com/mp3/meditation.mp3");
+            //var audioUrl = "android.resource://" + Resources.GetResourcePackageName(Resource.Raw.VideoFile.mp4) + "/" + Resource.Raw.VideoFile;
         }
 
         public void Destroy()

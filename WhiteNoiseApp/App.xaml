@@ -31,6 +31,18 @@
                 <Setter Property="HorizontalOptions"
                         Value="Center"/>
             </Style>
+            <Style TargetType="Frame" x:Key="PlayerFrame">
+                <Setter Property="BackgroundColor"
+                        Value="{x:Static helpers:ColorsHelper.PrimaryColor}"/>
+                <Setter Property="CornerRadius" 
+                        Value="25"/>
+                <Setter Property="Padding"
+                        Value="5,10"/>
+                <Setter Property="Margin"
+                        Value="25,5"/>
+                <Setter Property="MinimumHeightRequest"
+                        Value="75"/>
+            </Style>
         </ResourceDictionary>
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>

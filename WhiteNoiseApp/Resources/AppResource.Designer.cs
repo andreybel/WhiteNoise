@@ -106,7 +106,7 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на my sample.
+        ///   Ищет локализованную строку, похожую на my .
         /// </summary>
         internal static string MySample {
             get {

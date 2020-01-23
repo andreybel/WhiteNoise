@@ -37,7 +37,7 @@ namespace WhiteNoiseApp
 
             var urlNav =
                 $"/{nameof(BottomTabbedPage)}?{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(SoundsPage)}" +
-                $"&{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(PlaySoundPage)}" +
+                //$"&{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(PlaySoundPage)}" +
                 $"&{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(FavoritesPage)}";
 
 

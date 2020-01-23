@@ -36,9 +36,9 @@ namespace WhiteNoiseApp.ViewModels
                 new SoundSample{Name=AppResource.Space, Icon = "fas-moon"},
                 new SoundSample{Name=AppResource.Animals, Icon = "fas-cat"},
                 new SoundSample{Name=AppResource.Birds, Icon = "fas-dove"},
-                new SoundSample{Name=AppResource.Technick, Icon = "fas-blender-phone"},
-                new SoundSample{Name=AppResource.Random, Icon = "fas-random"},
-                new SoundSample{Name=AppResource.MySample, Icon = "fas-microphone-alt"},
+                //new SoundSample{Name=AppResource.Technick, Icon = "fas-blender-phone"},
+                //new SoundSample{Name=AppResource.Random, Icon = "fas-random"},
+                //new SoundSample{Name=AppResource.MySample, Icon = "fas-microphone-alt"}
             };
         }
 
@@ -49,6 +49,7 @@ namespace WhiteNoiseApp.ViewModels
             get => _selectedSound;
             set => SetProperty(ref _selectedSound, value);
         }
+
         private ObservableCollection<SoundSample> _soundSamples;
         public ObservableCollection<SoundSample> SoundSamples
         {
@@ -56,17 +57,63 @@ namespace WhiteNoiseApp.ViewModels
             set => SetProperty(ref _soundSamples, value);
         }
 
+        private bool _isPlaying;
+        public bool IsPlaying
+        {
+            get => _isPlaying;
+            set => SetProperty(ref _isPlaying, value);
+        }
+
+        private bool _isPaused = true;
+        public bool IsPaused
+        {
+            get => _isPaused;
+            set => SetProperty(ref _isPaused, value);
+        }
+
         #endregion
         #region commands
         private DelegateCommand<SoundSample>_playSoundCommand;
 
-        public DelegateCommand<SoundSample> PlaySoundCommand => (_playSoundCommand ?? 
-            (_playSoundCommand = new DelegateCommand<SoundSample>(OnPlaySound)));
+        public DelegateCommand<SoundSample> PlaySoundCommand => (_playSoundCommand 
+            ?? (_playSoundCommand = new DelegateCommand<SoundSample>(OnPlaySound)));
 
-        private async void OnPlaySound(SoundSample soundSample)
+        private void OnPlaySound(SoundSample soundSample)
+        {
+            IsPlaying = true;
+            
+            //await _navigationService.NavigateAsync(nameof(PlayerPage)
+            //    , new NavigationParameters{ { nameof(SoundSample), soundSample }});
+        }
+
+        private DelegateCommand _stopCommand;
+        public DelegateCommand StopCommand => (_stopCommand ?? (_stopCommand = new DelegateCommand(OnStopSound)));
+
+        private void OnStopSound()
+        {
+            IsPlaying = false;
+        }
+
+        private DelegateCommand _pauseCommand;
+        public DelegateCommand PauseCommand => (_pauseCommand ?? (_pauseCommand = new DelegateCommand(OnPause)));
+
+        private void OnPause()
+        {
+            if (IsPaused)
+                IsPaused = false;
+            else
+                IsPaused = true;
+        }
+
+        private DelegateCommand<SoundSample> _settingsCommand;
+
+        public DelegateCommand<SoundSample> SettingsCommand => (_settingsCommand 
+            ?? (_settingsCommand = new DelegateCommand<SoundSample>(OnSettings)));
+
+        private async void OnSettings(SoundSample soundSample)
         {
             await _navigationService.NavigateAsync(nameof(PlayerPage)
-                , new NavigationParameters{ { nameof(SoundSample), soundSample }});
+                , new NavigationParameters { { nameof(SoundSample), soundSample } });
         }
         #endregion
     }
