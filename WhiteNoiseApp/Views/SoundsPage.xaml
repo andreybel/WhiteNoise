@@ -32,7 +32,8 @@
     <ContentPage.Content>
         <effects:GradientBackgroundEffect StartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
                                               EndColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}">
-            <Grid Margin="16,10">
+            <Grid Margin="16,10"
+                  CompressedLayout.IsHeadless="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="45"/>
                     <RowDefinition Height="*"/>
