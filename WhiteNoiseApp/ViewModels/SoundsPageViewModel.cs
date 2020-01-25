@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using MediaManager;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Navigation.TabbedPages;
@@ -10,7 +11,12 @@ using System.Linq;
 using WhiteNoiseApp.Models;
 using WhiteNoiseApp.Resources;
 using WhiteNoiseApp.Views;
+using WhiteNoiseApp.Views.Popups;
 using Xamarin.Forms;
+using Plugin.SimpleAudioPlayer;
+using System.IO;
+using System.Reflection;
+using Xamarin.Essentials;
 
 namespace WhiteNoiseApp.ViewModels
 {
@@ -30,7 +36,7 @@ namespace WhiteNoiseApp.ViewModels
                 new SoundSample{Name=AppResource.Fire, Icon = "fas-fire"},
                 new SoundSample{Name=AppResource.Nature, Icon="fas-tree"},
                 new SoundSample{Name=AppResource.Storm, Icon="fas-poo-storm"},
-                new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-moon-rain"},
+                new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-moon-rain", Path = Constants.Constants.Rain},
                 new SoundSample{Name=AppResource.Sea, Icon = "fas-water"},
                 new SoundSample{Name=AppResource.City, Icon = "fas-city"},
                 new SoundSample{Name=AppResource.Space, Icon = "fas-moon"},
@@ -78,20 +84,26 @@ namespace WhiteNoiseApp.ViewModels
         public DelegateCommand<SoundSample> PlaySoundCommand => (_playSoundCommand 
             ?? (_playSoundCommand = new DelegateCommand<SoundSample>(OnPlaySound)));
 
-        private void OnPlaySound(SoundSample soundSample)
+        private async void OnPlaySound(SoundSample soundSample)
         {
-            IsPlaying = true;
-            
-            //await _navigationService.NavigateAsync(nameof(PlayerPage)
-            //    , new NavigationParameters{ { nameof(SoundSample), soundSample }});
+            if (string.IsNullOrEmpty(soundSample.Path))
+                await _pageDialogService.DisplayAlertAsync(null,"no file", "OK");
+            else
+            {
+                IsPlaying = true;
+                await CrossMediaManager.Current.PlayFromAssembly(soundSample.Path);
+                CrossMediaManager.Current.RepeatMode = MediaManager.Playback.RepeatMode.One;
+            }
         }
 
         private DelegateCommand _stopCommand;
         public DelegateCommand StopCommand => (_stopCommand ?? (_stopCommand = new DelegateCommand(OnStopSound)));
 
-        private void OnStopSound()
+        private async void OnStopSound()
         {
             IsPlaying = false;
+            IsPaused = true;
+            await CrossMediaManager.Current.Stop();
         }
 
         private DelegateCommand _pauseCommand;
@@ -99,22 +111,35 @@ namespace WhiteNoiseApp.ViewModels
 
         private void OnPause()
         {
-            if (IsPaused)
+            if (CrossMediaManager.Current.IsPlaying())
                 IsPaused = false;
             else
                 IsPaused = true;
+            CrossMediaManager.Current.PlayPause();
         }
 
-        private DelegateCommand<SoundSample> _settingsCommand;
+        private DelegateCommand _volumeCommand;
 
-        public DelegateCommand<SoundSample> SettingsCommand => (_settingsCommand 
-            ?? (_settingsCommand = new DelegateCommand<SoundSample>(OnSettings)));
+        public DelegateCommand VolumeCommand => (_volumeCommand
+            ?? (_volumeCommand = new DelegateCommand(OnVolume)));
 
-        private async void OnSettings(SoundSample soundSample)
+        private async void OnVolume()
         {
-            await _navigationService.NavigateAsync(nameof(PlayerPage)
-                , new NavigationParameters { { nameof(SoundSample), soundSample } });
+            await _navigationService.NavigateAsync(nameof(VolumePopupPage));
         }
+
+        private DelegateCommand _timerCommand;
+
+        public DelegateCommand TimerCommand => (_timerCommand
+            ?? (_timerCommand = new DelegateCommand(OnTimer)));
+
+        private async void OnTimer()
+        {
+            await _navigationService.NavigateAsync(nameof(TimerPopupPage));
+        }
+        #endregion
+
+        #region privates
         #endregion
     }
 }       

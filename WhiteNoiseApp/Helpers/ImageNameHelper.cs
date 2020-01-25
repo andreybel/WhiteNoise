@@ -7,6 +7,7 @@
         public static string Record = "ic_record.png";
         public static string Favorites = "ic_favorites.png";
         public static string Splash = "ic_splash.png";
+        public static string SoundTimer = "ic_timer.png";
        
     }
 }

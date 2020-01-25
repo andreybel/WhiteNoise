@@ -23,6 +23,7 @@ namespace WhiteNoiseApp.Droid
             
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.Essentials.Platform.Init(this, bundle);
+            Rg.Plugins.Popup.Popup.Init(this,bundle);
             CrossMediaManager.Current.Init(this);
             XamEffects.Droid.Effects.Init();
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);

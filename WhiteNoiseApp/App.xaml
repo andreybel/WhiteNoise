@@ -43,6 +43,47 @@
                 <Setter Property="MinimumHeightRequest"
                         Value="75"/>
             </Style>
+            <Style x:Key="LoadingStyle"
+                   TargetType="ActivityIndicator">
+                <Setter Property="IsRunning"
+                        Value="{Binding IsBusy}" />
+                <Setter Property="IsVisible"
+                        Value="{Binding IsBusy}" />
+                <Setter Property="Color"
+                        Value="{x:Static helpers:ColorsHelper.SecondaryColor}" />
+                <Setter Property="HeightRequest"
+                        Value="60" />
+                <Setter Property="WidthRequest"
+                        Value="60" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+            </Style>
+            <Style TargetType="Frame"
+                   x:Key="PopupStyle">
+                <Setter Property="VerticalOptions"
+                        Value="Center"/>
+                <Setter Property="Margin"
+                        Value="20"/>
+                <Setter Property="HasShadow"
+                        Value="False"/>
+                <Setter Property="CornerRadius"
+                        Value="5"/>
+                <Setter Property="Padding"
+                        Value="0,0,0,5"/>
+            </Style>
+            <Style TargetType="Frame"
+                   x:Key="PopupHeaderFrame">
+                <Setter Property="BackgroundColor"
+                        Value="{x:Static helpers:ColorsHelper.PrimaryColor}"/>
+                <Setter Property="Margin"
+                        Value="0,0,0,10"/>
+                <Setter Property="Padding"
+                        Value="5,15"/>
+                <Setter Property="CornerRadius"
+                        Value="5"/>
+                <Setter Property="HasShadow"
+                        Value="False"/>
+            </Style>
         </ResourceDictionary>
     </prism:PrismApplication.Resources>
 </prism:PrismApplication>

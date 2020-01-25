@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:resources="clr-namespace:WhiteNoiseApp.Resources;assembly=WhiteNoiseApp"
+             x:Class="WhiteNoiseApp.Views.Popups.TimerPopupPage">
+    <pages:PopupPage.Content>
+        <Frame Style="{StaticResource PopupStyle}">
+            <StackLayout>
+                <Frame Style="{StaticResource PopupHeaderFrame}">
+                    <Label Text="{x:Static resources:AppResource.TimerSettings}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Margin="5"
+                           FontSize="Medium"
+                           TextColor="White"/>
+                </Frame>
+            </StackLayout>
+        </Frame>
+    </pages:PopupPage.Content>
+</pages:PopupPage>

@@ -162,6 +162,12 @@
   <data name="Technick" xml:space="preserve">
     <value>техника</value>
   </data>
+  <data name="TimerSettings" xml:space="preserve">
+    <value>Таймер отключения</value>
+  </data>
+  <data name="VolumeSettings" xml:space="preserve">
+    <value>Горомкость</value>
+  </data>
   <data name="Whisper" xml:space="preserve">
     <value>шёпот</value>
   </data>

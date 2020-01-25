@@ -5,11 +5,14 @@ using Plugin.Iconize;
 using Prism;
 using Prism.Ioc;
 using Prism.Navigation;
+using Prism.Plugin.Popups;
 using Prism.Unity;
 using WhiteNoiseApp.Interfaces;
 using WhiteNoiseApp.Resources;
 using WhiteNoiseApp.ViewModels;
+using WhiteNoiseApp.ViewModels.Popups;
 using WhiteNoiseApp.Views;
+using WhiteNoiseApp.Views.Popups;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -55,6 +58,8 @@ namespace WhiteNoiseApp
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterPopupNavigationService();
+
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<BottomTabbedPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
@@ -62,7 +67,8 @@ namespace WhiteNoiseApp
             containerRegistry.RegisterForNavigation<PlaySoundPage, PlaySoundPageViewModel>();
             containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
             containerRegistry.RegisterForNavigation<MainCarouselPage, MainCarouselPageViewModel>();
-            containerRegistry.RegisterForNavigation<PlayerPage, PlayerPageViewModel>();
+            containerRegistry.RegisterForNavigation<VolumePopupPage, VolumePopupPageViewModel>();
+            containerRegistry.RegisterForNavigation<TimerPopupPage, TimerPopupPageViewModel>();
         }
 
         protected override void OnStart()

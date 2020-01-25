@@ -196,6 +196,24 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Timer.
+        /// </summary>
+        internal static string TimerSettings {
+            get {
+                return ResourceManager.GetString("TimerSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Volume.
+        /// </summary>
+        internal static string VolumeSettings {
+            get {
+                return ResourceManager.GetString("VolumeSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на whisper.
         /// </summary>
         internal static string Whisper {
