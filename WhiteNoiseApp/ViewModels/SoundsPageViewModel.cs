@@ -17,10 +17,12 @@ using Plugin.SimpleAudioPlayer;
 using System.IO;
 using System.Reflection;
 using Xamarin.Essentials;
+using System.Diagnostics;
+using System.Threading;
 
 namespace WhiteNoiseApp.ViewModels
 {
-    public class SoundsPageViewModel : BindableBase
+    public class SoundsPageViewModel : ViewModelBase
     {
         #region fields
         private readonly INavigationService _navigationService;
@@ -63,21 +65,8 @@ namespace WhiteNoiseApp.ViewModels
             set => SetProperty(ref _soundSamples, value);
         }
 
-        private bool _isPlaying;
-        public bool IsPlaying
-        {
-            get => _isPlaying;
-            set => SetProperty(ref _isPlaying, value);
-        }
-
-        private bool _isPaused = true;
-        public bool IsPaused
-        {
-            get => _isPaused;
-            set => SetProperty(ref _isPaused, value);
-        }
-
         #endregion
+
         #region commands
         private DelegateCommand<SoundSample>_playSoundCommand;
 
@@ -120,8 +109,7 @@ namespace WhiteNoiseApp.ViewModels
 
         private DelegateCommand _volumeCommand;
 
-        public DelegateCommand VolumeCommand => (_volumeCommand
-            ?? (_volumeCommand = new DelegateCommand(OnVolume)));
+        public DelegateCommand VolumeCommand => (_volumeCommand ?? (_volumeCommand = new DelegateCommand(OnVolume)));
 
         private async void OnVolume()
         {
@@ -130,8 +118,7 @@ namespace WhiteNoiseApp.ViewModels
 
         private DelegateCommand _timerCommand;
 
-        public DelegateCommand TimerCommand => (_timerCommand
-            ?? (_timerCommand = new DelegateCommand(OnTimer)));
+        public DelegateCommand TimerCommand => (_timerCommand ?? (_timerCommand = new DelegateCommand(OnTimer)));
 
         private async void OnTimer()
         {
@@ -139,7 +126,28 @@ namespace WhiteNoiseApp.ViewModels
         }
         #endregion
 
+        #region overrides
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            Debug.WriteLine("SoundsPageViewModel OnNavigatedTo()");
+            if (parameters.TryGetValue(nameof(SoundTimer), out SoundTimer soundTimer))
+            {
+                var timeSpan = double.Parse(soundTimer.Time);
+                Debug.WriteLine(soundTimer.Time + " min. timer started. Time: "+ DateTime.Now.TimeOfDay.ToString());
+                Device.StartTimer(TimeSpan.FromMinutes(timeSpan), (() => StopPlaying()));
+            }
+            base.OnNavigatedTo(parameters);
+        }
+        #endregion
+
         #region privates
+        private bool StopPlaying()
+        {
+            CrossMediaManager.Current.Stop();
+            Debug.WriteLine("Timer stopped. Time: " + DateTime.Now.TimeOfDay.ToString());
+            IsPlaying = false;
+            return false;
+        }
         #endregion
     }
 }       

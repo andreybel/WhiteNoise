@@ -3,11 +3,13 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:helpers="clr-namespace:WhiteNoiseApp.Helpers;assembly=WhiteNoiseApp"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:resources="clr-namespace:WhiteNoiseApp.Resources;assembly=WhiteNoiseApp"
              x:Class="WhiteNoiseApp.Views.Popups.TimerPopupPage">
     <pages:PopupPage.Content>
-        <Frame Style="{StaticResource PopupStyle}">
+        <Frame Style="{StaticResource PopupStyle}" HeightRequest="350" Margin="50,20">
             <StackLayout>
                 <Frame Style="{StaticResource PopupHeaderFrame}">
                     <Label Text="{x:Static resources:AppResource.TimerSettings}"
@@ -17,6 +19,33 @@
                            FontSize="Medium"
                            TextColor="White"/>
                 </Frame>
+                <ListView ItemsSource="{Binding SoundTimers, Mode=TwoWay}"
+                          SelectionMode="None"
+                          SeparatorColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
+                          Margin="5,0">
+                    <ListView.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                                          EventArgsParameterPath="Item"
+                                                          Command="{Binding StartTimerCommand}"/>
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding Time}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Time}"/>
+                                            <Span Text=" "/>
+                                            <Span Text="{x:Static resources:AppResource.Min}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </Frame>
     </pages:PopupPage.Content>

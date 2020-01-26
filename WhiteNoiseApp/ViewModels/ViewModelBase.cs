@@ -9,7 +9,29 @@ namespace WhiteNoiseApp.ViewModels
 {
     public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible
     {
-        protected INavigationService NavigationService { get; private set; }
+
+        #region propeties
+        private bool _isPlaying;
+        public bool IsPlaying
+        {
+            get => _isPlaying;
+            set => SetProperty(ref _isPlaying, value);
+        }
+
+        private bool _isPaused = true;
+        public bool IsPaused
+        {
+            get => _isPaused;
+            set => SetProperty(ref _isPaused, value);
+        }
+
+        private bool _isBusy = true;
+        public bool IsBusy
+        {
+            get => _isBusy;
+            set => SetProperty(ref _isBusy, value);
+        }
+        #endregion
 
         private string _title;
         public string Title
@@ -18,9 +40,8 @@ namespace WhiteNoiseApp.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        public ViewModelBase(INavigationService navigationService)
+        public ViewModelBase()
         {
-            NavigationService = navigationService;
         }
 
         public virtual void Initialize(INavigationParameters parameters)

@@ -106,6 +106,15 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на min..
+        /// </summary>
+        internal static string Min {
+            get {
+                return ResourceManager.GetString("Min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на my .
         /// </summary>
         internal static string MySample {
@@ -205,11 +214,29 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Непредвиденная ошибка.
+        /// </summary>
+        internal static string UnhandledError {
+            get {
+                return ResourceManager.GetString("UnhandledError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Volume.
         /// </summary>
         internal static string VolumeSettings {
             get {
                 return ResourceManager.GetString("VolumeSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Внимание.
+        /// </summary>
+        internal static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
             }
         }
         

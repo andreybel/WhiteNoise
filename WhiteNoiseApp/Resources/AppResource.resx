@@ -132,6 +132,9 @@
   <data name="Fire" xml:space="preserve">
     <value>bonfire</value>
   </data>
+  <data name="Min" xml:space="preserve">
+    <value>min.</value>
+  </data>
   <data name="MySample" xml:space="preserve">
     <value>my </value>
   </data>
@@ -165,8 +168,14 @@
   <data name="TimerSettings" xml:space="preserve">
     <value>Timer</value>
   </data>
+  <data name="UnhandledError" xml:space="preserve">
+    <value>Непредвиденная ошибка</value>
+  </data>
   <data name="VolumeSettings" xml:space="preserve">
     <value>Volume</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Внимание</value>
   </data>
   <data name="Whisper" xml:space="preserve">
     <value>whisper</value>

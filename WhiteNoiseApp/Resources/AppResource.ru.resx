@@ -132,6 +132,9 @@
   <data name="Fire" xml:space="preserve">
     <value>костёр</value>
   </data>
+  <data name="Min" xml:space="preserve">
+    <value>мин.</value>
+  </data>
   <data name="MySample" xml:space="preserve">
     <value>записать</value>
   </data>
@@ -165,8 +168,14 @@
   <data name="TimerSettings" xml:space="preserve">
     <value>Таймер отключения</value>
   </data>
+  <data name="UnhandledError" xml:space="preserve">
+    <value>unhandled error</value>
+  </data>
   <data name="VolumeSettings" xml:space="preserve">
     <value>Горомкость</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
   </data>
   <data name="Whisper" xml:space="preserve">
     <value>шёпот</value>
