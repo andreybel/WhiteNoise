@@ -18,6 +18,9 @@
              Icon = "{x:Static helpers:ImageNameHelper.Sounds}">
     <ContentPage.Resources>
         <ResourceDictionary>
+            <converters:BoolToColorConverter x:Key="BoolToColorConverter"
+                                             FalseColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"
+                                             TrueColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
             <Style TargetType="iconize:IconLabel" x:Key="playerControl">
                 <Setter Property="FontSize" Value="32"/>
                 <Setter Property="TextColor" Value="White"/>
@@ -43,15 +46,13 @@
                        Text="{x:Static resources:AppResource.Collection}"/>
                 <CollectionView Grid.Row="1"
                                 ItemsSource="{Binding SoundSamples, Mode=TwoWay}" 
-                                SelectionMode="None"
-                                SelectedItem="{Binding SelectedSound}">
+                                SelectionMode="None">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" 
                                          Span="3"
                                          VerticalItemSpacing="5"
                                          HorizontalItemSpacing="5"/>
                     </CollectionView.ItemsLayout>
-
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid 
@@ -68,7 +69,7 @@
                                                        HorizontalOptions="Center"
                                                        Text="{Binding Icon}" 
                                                        FontSize="33"
-                                                       TextColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"/>
+                                                       TextColor="{Binding IsSelected, Converter={StaticResource BoolToColorConverter}}"/>
                                     <Label Grid.Row="1" 
                                            HorizontalOptions="Center"
                                            Text="{Binding Name}" 

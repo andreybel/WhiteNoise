@@ -35,15 +35,15 @@ namespace WhiteNoiseApp.ViewModels
             _pageDialogService = pageDialogService;
             SoundSamples = new ObservableCollection<SoundSample>
             {
-                new SoundSample{Name=AppResource.Fire, Icon = "fas-fire"},
-                new SoundSample{Name=AppResource.Nature, Icon="fas-tree"},
-                new SoundSample{Name=AppResource.Storm, Icon="fas-poo-storm"},
+                new SoundSample{Name=AppResource.Fire, Icon = "fas-fire", Path = Constants.Constants.Fireplace},
+                new SoundSample{Name=AppResource.Nature, Icon="fas-tree", Path = Constants.Constants.Forest},
+                new SoundSample{Name=AppResource.Storm, Icon="fas-poo-storm", Path = Constants.Constants.Storm},
                 new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-moon-rain", Path = Constants.Constants.Rain},
-                new SoundSample{Name=AppResource.Sea, Icon = "fas-water"},
-                new SoundSample{Name=AppResource.City, Icon = "fas-city"},
-                new SoundSample{Name=AppResource.Space, Icon = "fas-moon"},
-                new SoundSample{Name=AppResource.Animals, Icon = "fas-cat"},
-                new SoundSample{Name=AppResource.Birds, Icon = "fas-dove"},
+                new SoundSample{Name=AppResource.Sea, Icon = "fas-water", Path = Constants.Constants.Sea},
+                new SoundSample{Name=AppResource.City, Icon = "fas-city", Path = Constants.Constants.City},
+                new SoundSample{Name=AppResource.Space, Icon = "fas-moon", Path = Constants.Constants.Space},
+                new SoundSample{Name=AppResource.Animals, Icon = "fas-cat", Path = Constants.Constants.Cat},
+                new SoundSample{Name=AppResource.Birds, Icon = "fas-dove", Path = Constants.Constants.Birds}
                 //new SoundSample{Name=AppResource.Technick, Icon = "fas-blender-phone"},
                 //new SoundSample{Name=AppResource.Random, Icon = "fas-random"},
                 //new SoundSample{Name=AppResource.MySample, Icon = "fas-microphone-alt"}
@@ -65,6 +65,7 @@ namespace WhiteNoiseApp.ViewModels
             set => SetProperty(ref _soundSamples, value);
         }
 
+
         #endregion
 
         #region commands
@@ -80,6 +81,7 @@ namespace WhiteNoiseApp.ViewModels
             else
             {
                 IsPlaying = true;
+                soundSample.IsSelected = true;
                 await CrossMediaManager.Current.PlayFromAssembly(soundSample.Path);
                 CrossMediaManager.Current.RepeatMode = MediaManager.Playback.RepeatMode.One;
             }
@@ -92,6 +94,10 @@ namespace WhiteNoiseApp.ViewModels
         {
             IsPlaying = false;
             IsPaused = true;
+            foreach (var item in SoundSamples)
+            {
+                item.IsSelected = false;
+            }
             await CrossMediaManager.Current.Stop();
         }
 

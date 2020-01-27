@@ -6,10 +6,28 @@
 
   <ItemGroup>
     <None Remove="rain.mp3" />
+    <None Remove="Sounds\birds.mp3" />
+    <None Remove="Sounds\cat.mp3" />
+    <None Remove="Sounds\city.mp3" />
+    <None Remove="Sounds\fireplace.mp3" />
+    <None Remove="Sounds\forest.mp3" />
+    <None Remove="Sounds\sea.mp3" />
+    <None Remove="Sounds\space.mp3" />
+    <None Remove="Sounds\storm.mp3" />
+    <None Remove="Sounds\underWater.mp3" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Sounds\birds.mp3" />
+    <EmbeddedResource Include="Sounds\cat.mp3" />
+    <EmbeddedResource Include="Sounds\city.mp3" />
+    <EmbeddedResource Include="Sounds\fireplace.mp3" />
+    <EmbeddedResource Include="Sounds\forest.mp3" />
     <EmbeddedResource Include="Sounds\rain.mp3" />
+    <EmbeddedResource Include="Sounds\sea.mp3" />
+    <EmbeddedResource Include="Sounds\space.mp3" />
+    <EmbeddedResource Include="Sounds\storm.mp3" />
+    <EmbeddedResource Include="Sounds\underWater.mp3" />
   </ItemGroup>
 
   <ItemGroup>
