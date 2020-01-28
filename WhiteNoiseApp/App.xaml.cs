@@ -38,14 +38,20 @@ namespace WhiteNoiseApp
         {
             InitializeComponent();
 
+            Xamarin.Forms.Device.SetFlags(new[] {
+                "CarouselView_Experimental",
+                "IndicatorView_Experimental",
+                "SwipeView_Experimental"});
+
             var urlNav =
                 $"/{nameof(BottomTabbedPage)}?{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(SoundsPage)}" +
                 //$"&{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(PlaySoundPage)}" +
                 $"&{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(FavoritesPage)}";
 
 
-            await NavigationService.NavigateAsync(urlNav);
-            //await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            //await NavigationService.NavigateAsync(urlNav);
+            //await NavigationService.NavigateAsync("NavigationPage/SoundsPage");
+            MainPage = new SoundsPage();
         }
         protected override void Initialize()
         {

@@ -33,29 +33,63 @@ namespace WhiteNoiseApp.ViewModels
         {
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
-            SoundSamples = new ObservableCollection<SoundSample>
+
+            Categories = new ObservableCollection<Category>
             {
-                new SoundSample{Name=AppResource.Fire, Icon = "fas-fire", Path = Constants.Constants.Fireplace},
-                new SoundSample{Name=AppResource.Nature, Icon="fas-tree", Path = Constants.Constants.Forest},
-                new SoundSample{Name=AppResource.Storm, Icon="fas-poo-storm", Path = Constants.Constants.Storm},
-                new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-moon-rain", Path = Constants.Constants.Rain},
-                new SoundSample{Name=AppResource.Sea, Icon = "fas-water", Path = Constants.Constants.Sea},
-                new SoundSample{Name=AppResource.City, Icon = "fas-city", Path = Constants.Constants.City},
-                new SoundSample{Name=AppResource.Space, Icon = "fas-moon", Path = Constants.Constants.Space},
-                new SoundSample{Name=AppResource.Animals, Icon = "fas-cat", Path = Constants.Constants.Cat},
-                new SoundSample{Name=AppResource.Birds, Icon = "fas-dove", Path = Constants.Constants.Birds}
-                //new SoundSample{Name=AppResource.Technick, Icon = "fas-blender-phone"},
-                //new SoundSample{Name=AppResource.Random, Icon = "fas-random"},
-                //new SoundSample{Name=AppResource.MySample, Icon = "fas-microphone-alt"}
+                new Category
+                {
+                    Title = AppResource.Nature,
+                    SoundsList = new ObservableCollection<SoundSample>
+                    {
+                        new SoundSample{Name=AppResource.Fire, Icon = "fas-fire", Path = Constants.Constants.Fireplace},
+                        new SoundSample{Name=AppResource.Nature, Icon="fas-tree", Path = Constants.Constants.Forest},
+                        new SoundSample{Name=AppResource.Storm, Icon="fas-poo-storm", Path = Constants.Constants.Storm},
+                        new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-moon-rain", Path = Constants.Constants.Rain},
+                        new SoundSample{Name=AppResource.Sea, Icon = "fas-water", Path = Constants.Constants.Sea},
+                        new SoundSample{Name=AppResource.Space, Icon = "fas-moon", Path = Constants.Constants.Space}
+                    }
+                },
+                new Category
+                {
+                    Title = AppResource.Technick,
+                    SoundsList = new ObservableCollection<SoundSample>
+                    {
+                        new SoundSample{Name=AppResource.City, Icon = "fas-city", Path = Constants.Constants.City}
+                    }
+                },
+                new Category
+                {
+                    Title = AppResource.Other,
+                    SoundsList = new ObservableCollection<SoundSample>
+                    {
+                        new SoundSample{Name=AppResource.Animals, Icon = "fas-cat", Path = Constants.Constants.Cat},
+                        new SoundSample{Name=AppResource.Birds, Icon = "fas-dove", Path = Constants.Constants.Birds},
+                        new SoundSample{Name=AppResource.Sea, Icon = "fas-water", Path = Constants.Constants.UnderWater},
+                    }
+                },
             };
         }
 
         #region properties
+        private Category _category;
+        public Category Category
+        {
+            get => _category;
+            set => SetProperty(ref _category, value);
+        }
+
         private SoundSample _selectedSound;
         public SoundSample SelectedSound
         {
             get => _selectedSound;
             set => SetProperty(ref _selectedSound, value);
+        }
+
+        private ObservableCollection<Category> _categories;
+        public ObservableCollection<Category> Categories
+        {
+            get => _categories;
+            set => SetProperty(ref _categories, value);
         }
 
         private ObservableCollection<SoundSample> _soundSamples;
@@ -81,7 +115,6 @@ namespace WhiteNoiseApp.ViewModels
             else
             {
                 IsPlaying = true;
-                soundSample.IsSelected = true;
                 await CrossMediaManager.Current.PlayFromAssembly(soundSample.Path);
                 CrossMediaManager.Current.RepeatMode = MediaManager.Playback.RepeatMode.One;
             }
@@ -94,10 +127,6 @@ namespace WhiteNoiseApp.ViewModels
         {
             IsPlaying = false;
             IsPaused = true;
-            foreach (var item in SoundSamples)
-            {
-                item.IsSelected = false;
-            }
             await CrossMediaManager.Current.Stop();
         }
 
@@ -153,6 +182,15 @@ namespace WhiteNoiseApp.ViewModels
             Debug.WriteLine("Timer stopped. Time: " + DateTime.Now.TimeOfDay.ToString());
             IsPlaying = false;
             return false;
+        }
+
+        private Category GetCategory(string title, ObservableCollection<SoundSample> soundSamples)
+        {
+            return new Category
+            {
+                Title = title,
+                SoundsList = soundSamples
+            };
         }
         #endregion
     }
