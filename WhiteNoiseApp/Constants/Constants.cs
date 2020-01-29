@@ -16,5 +16,16 @@ namespace WhiteNoiseApp.Constants
         public const string Space = "space.mp3";
         public const string Storm = "storm.mp3";
         public const string UnderWater = "underWater.mp3";
+        public const string Bonfire = "bonfire.mp3";
+        public const string Helicopter = "helicopter.mp3";
+        public const string Keyboard = "keyboard.mp3";
+        public const string Mixer = "mixer.mp3";
+        public const string Night = "night.mp3";
+        public const string Propeller = "propeller.mp3";
+        public const string Snow = "snow.mp3";
+        public const string Snowstorm = "snowstorm.mp3";
+        public const string Train = "train.mp3";
+        public const string Wind = "wind.mp3";
+        public const string CoffeeMashine = "coffeeMashine.mp3";
     }
 }

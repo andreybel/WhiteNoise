@@ -123,8 +123,14 @@
   <data name="Birds" xml:space="preserve">
     <value>birds</value>
   </data>
+  <data name="Bonfire" xml:space="preserve">
+    <value>bonfire</value>
+  </data>
   <data name="City" xml:space="preserve">
     <value>city</value>
+  </data>
+  <data name="CoffeeMashine" xml:space="preserve">
+    <value>coffee</value>
   </data>
   <data name="Collection" xml:space="preserve">
     <value>collection</value>
@@ -132,8 +138,20 @@
   <data name="Fire" xml:space="preserve">
     <value>bonfire</value>
   </data>
+  <data name="Helicopter" xml:space="preserve">
+    <value>helicopter</value>
+  </data>
+  <data name="Hurricane" xml:space="preserve">
+    <value>hurricane</value>
+  </data>
+  <data name="Keyboard" xml:space="preserve">
+    <value>keyboard</value>
+  </data>
   <data name="Min" xml:space="preserve">
     <value>min.</value>
+  </data>
+  <data name="Mixer" xml:space="preserve">
+    <value>mixer</value>
   </data>
   <data name="MySample" xml:space="preserve">
     <value>my </value>
@@ -141,11 +159,17 @@
   <data name="Nature" xml:space="preserve">
     <value>nature</value>
   </data>
+  <data name="Night" xml:space="preserve">
+    <value>night</value>
+  </data>
   <data name="Other" xml:space="preserve">
     <value>other</value>
   </data>
   <data name="Piano" xml:space="preserve">
     <value>piano</value>
+  </data>
+  <data name="Propeller" xml:space="preserve">
+    <value>propeller</value>
   </data>
   <data name="Rain" xml:space="preserve">
     <value>rain</value>
@@ -159,6 +183,12 @@
   <data name="Sea" xml:space="preserve">
     <value>sea</value>
   </data>
+  <data name="Snow" xml:space="preserve">
+    <value>snow</value>
+  </data>
+  <data name="Snowstorm" xml:space="preserve">
+    <value>snowstorm</value>
+  </data>
   <data name="Space" xml:space="preserve">
     <value>space</value>
   </data>
@@ -170,6 +200,12 @@
   </data>
   <data name="TimerSettings" xml:space="preserve">
     <value>Timer</value>
+  </data>
+  <data name="Train" xml:space="preserve">
+    <value>train</value>
+  </data>
+  <data name="UnderWater" xml:space="preserve">
+    <value>under water</value>
   </data>
   <data name="UnhandledError" xml:space="preserve">
     <value>Непредвиденная ошибка</value>

@@ -46,7 +46,10 @@ namespace WhiteNoiseApp.ViewModels
                         new SoundSample{Name=AppResource.Storm, Icon="fas-poo-storm", Path = Constants.Constants.Storm},
                         new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-moon-rain", Path = Constants.Constants.Rain},
                         new SoundSample{Name=AppResource.Sea, Icon = "fas-water", Path = Constants.Constants.Sea},
-                        new SoundSample{Name=AppResource.Space, Icon = "fas-moon", Path = Constants.Constants.Space}
+                        new SoundSample{Name=AppResource.Space, Icon = "fas-moon", Path = Constants.Constants.Space},
+                        new SoundSample{Name=AppResource.Bonfire, Icon = "fas-fire-alt", Path = Constants.Constants.Bonfire},
+                        new SoundSample{Name=AppResource.Night, Icon = "fas-cloud-moon", Path = Constants.Constants.Night},
+                        new SoundSample{Name=AppResource.Snowstorm, Icon = "fas-snowflake", Path = Constants.Constants.Snowstorm}
                     }
                 },
                 new Category
@@ -54,7 +57,12 @@ namespace WhiteNoiseApp.ViewModels
                     Title = AppResource.Technick,
                     SoundsList = new ObservableCollection<SoundSample>
                     {
-                        new SoundSample{Name=AppResource.City, Icon = "fas-city", Path = Constants.Constants.City}
+                        new SoundSample{Name=AppResource.City, Icon = "fas-city", Path = Constants.Constants.City},
+                        new SoundSample{Name=AppResource.Helicopter, Icon = "fas-helicopter", Path = Constants.Constants.Helicopter},
+                        new SoundSample{Name=AppResource.Keyboard, Icon = "fas-keyboard", Path = Constants.Constants.Keyboard},
+                        new SoundSample{Name=AppResource.Mixer, Icon = "fas-blender", Path = Constants.Constants.Mixer},
+                        new SoundSample{Name=AppResource.CoffeeMashine, Icon = "fas-coffee", Path = Constants.Constants.CoffeeMashine},
+                        new SoundSample{Name=AppResource.Train, Icon = "fas-train", Path = Constants.Constants.Train}
                     }
                 },
                 new Category
@@ -65,6 +73,8 @@ namespace WhiteNoiseApp.ViewModels
                         new SoundSample{Name=AppResource.Animals, Icon = "fas-cat", Path = Constants.Constants.Cat},
                         new SoundSample{Name=AppResource.Birds, Icon = "fas-dove", Path = Constants.Constants.Birds},
                         new SoundSample{Name=AppResource.Sea, Icon = "fas-water", Path = Constants.Constants.UnderWater},
+                        new SoundSample{Name=AppResource.Snow, Icon = "fas-walking", Path = Constants.Constants.Snow}
+                        
                     }
                 },
             };

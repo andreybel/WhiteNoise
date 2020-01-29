@@ -123,17 +123,35 @@
   <data name="Birds" xml:space="preserve">
     <value>птицы</value>
   </data>
+  <data name="Bonfire" xml:space="preserve">
+    <value>костер</value>
+  </data>
   <data name="City" xml:space="preserve">
     <value>город</value>
+  </data>
+  <data name="CoffeeMashine" xml:space="preserve">
+    <value>кофеварка</value>
   </data>
   <data name="Collection" xml:space="preserve">
     <value>Коллекция</value>
   </data>
-  <data name="Fire" xml:space="preserve">
-    <value>костёр</value>
+  <data name="Fireplace" xml:space="preserve">
+    <value>камин</value>
+  </data>
+  <data name="Helicopter" xml:space="preserve">
+    <value>вертолет</value>
+  </data>
+  <data name="Hurricane" xml:space="preserve">
+    <value>ураган</value>
+  </data>
+  <data name="Keyboard" xml:space="preserve">
+    <value>клавиатура</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>мин.</value>
+  </data>
+  <data name="Mixer" xml:space="preserve">
+    <value>миксер</value>
   </data>
   <data name="MySample" xml:space="preserve">
     <value>записать</value>
@@ -141,11 +159,17 @@
   <data name="Nature" xml:space="preserve">
     <value>природа</value>
   </data>
+  <data name="Night" xml:space="preserve">
+    <value>ночь</value>
+  </data>
   <data name="Other" xml:space="preserve">
     <value>разное</value>
   </data>
   <data name="Piano" xml:space="preserve">
     <value>фортепиано</value>
+  </data>
+  <data name="Propeller" xml:space="preserve">
+    <value>пропеллер</value>
   </data>
   <data name="Rain" xml:space="preserve">
     <value>дождь</value>
@@ -159,6 +183,12 @@
   <data name="Sea" xml:space="preserve">
     <value>море</value>
   </data>
+  <data name="Snow" xml:space="preserve">
+    <value>снег</value>
+  </data>
+  <data name="Snowstorm" xml:space="preserve">
+    <value>метель</value>
+  </data>
   <data name="Space" xml:space="preserve">
     <value>космос</value>
   </data>
@@ -171,11 +201,17 @@
   <data name="TimerSettings" xml:space="preserve">
     <value>Таймер отключения</value>
   </data>
+  <data name="Train" xml:space="preserve">
+    <value>поезд</value>
+  </data>
+  <data name="UnderWater" xml:space="preserve">
+    <value>под водой</value>
+  </data>
   <data name="UnhandledError" xml:space="preserve">
     <value>unhandled error</value>
   </data>
   <data name="VolumeSettings" xml:space="preserve">
-    <value>Горомкость</value>
+    <value>Громкость</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
