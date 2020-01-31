@@ -88,6 +88,15 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на cats.
+        /// </summary>
+        internal static string Cats {
+            get {
+                return ResourceManager.GetString("Cats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на city.
         /// </summary>
         internal static string City {
@@ -115,11 +124,11 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на bonfire.
+        ///   Ищет локализованную строку, похожую на fireplace.
         /// </summary>
-        internal static string Fire {
+        internal static string Fireplace {
             get {
-                return ResourceManager.GetString("Fire", resourceCulture);
+                return ResourceManager.GetString("Fireplace", resourceCulture);
             }
         }
         

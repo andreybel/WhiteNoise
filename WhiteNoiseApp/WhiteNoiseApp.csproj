@@ -7,27 +7,50 @@
   <ItemGroup>
     <None Remove="rain.mp3" />
     <None Remove="Sounds\birds.mp3" />
+    <None Remove="Sounds\bonfire.mp3" />
     <None Remove="Sounds\cat.mp3" />
     <None Remove="Sounds\city.mp3" />
+    <None Remove="Sounds\coffeeMashine.mp3" />
     <None Remove="Sounds\fireplace.mp3" />
     <None Remove="Sounds\forest.mp3" />
+    <None Remove="Sounds\helicopter.mp3" />
+    <None Remove="Sounds\keyboard.mp3" />
+    <None Remove="Sounds\mixer.mp3" />
+    <None Remove="Sounds\night.mp3" />
+    <None Remove="Sounds\propeller.mp3" />
     <None Remove="Sounds\sea.mp3" />
+    <None Remove="Sounds\smallrain.mp3" />
+    <None Remove="Sounds\snow.mp3" />
+    <None Remove="Sounds\snowstorm.mp3" />
     <None Remove="Sounds\space.mp3" />
     <None Remove="Sounds\storm.mp3" />
+    <None Remove="Sounds\train.mp3" />
     <None Remove="Sounds\underWater.mp3" />
+    <None Remove="Sounds\wind.mp3" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Sounds\birds.mp3" />
+    <EmbeddedResource Include="Sounds\bonfire.mp3" />
     <EmbeddedResource Include="Sounds\cat.mp3" />
     <EmbeddedResource Include="Sounds\city.mp3" />
+    <EmbeddedResource Include="Sounds\coffeeMashine.mp3" />
     <EmbeddedResource Include="Sounds\fireplace.mp3" />
     <EmbeddedResource Include="Sounds\forest.mp3" />
-    <EmbeddedResource Include="Sounds\rain.mp3" />
+    <EmbeddedResource Include="Sounds\helicopter.mp3" />
+    <EmbeddedResource Include="Sounds\keyboard.mp3" />
+    <EmbeddedResource Include="Sounds\mixer.mp3" />
+    <EmbeddedResource Include="Sounds\night.mp3" />
+    <EmbeddedResource Include="Sounds\propeller.mp3" />
+    <EmbeddedResource Include="Sounds\smallrain.mp3" />
     <EmbeddedResource Include="Sounds\sea.mp3" />
+    <EmbeddedResource Include="Sounds\snow.mp3" />
+    <EmbeddedResource Include="Sounds\snowstorm.mp3" />
     <EmbeddedResource Include="Sounds\space.mp3" />
     <EmbeddedResource Include="Sounds\storm.mp3" />
+    <EmbeddedResource Include="Sounds\train.mp3" />
     <EmbeddedResource Include="Sounds\underWater.mp3" />
+    <EmbeddedResource Include="Sounds\wind.mp3" />
   </ItemGroup>
 
   <ItemGroup>

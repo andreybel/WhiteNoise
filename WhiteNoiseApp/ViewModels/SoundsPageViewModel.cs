@@ -41,15 +41,15 @@ namespace WhiteNoiseApp.ViewModels
                     Title = AppResource.Nature,
                     SoundsList = new ObservableCollection<SoundSample>
                     {
-                        new SoundSample{Name=AppResource.Fire, Icon = "fas-fire", Path = Constants.Constants.Fireplace},
-                        new SoundSample{Name=AppResource.Nature, Icon="fas-tree", Path = Constants.Constants.Forest},
-                        new SoundSample{Name=AppResource.Storm, Icon="fas-poo-storm", Path = Constants.Constants.Storm},
-                        new SoundSample{Name=AppResource.Rain, Icon="fas-cloud-moon-rain", Path = Constants.Constants.Rain},
-                        new SoundSample{Name=AppResource.Sea, Icon = "fas-water", Path = Constants.Constants.Sea},
-                        new SoundSample{Name=AppResource.Space, Icon = "fas-moon", Path = Constants.Constants.Space},
-                        new SoundSample{Name=AppResource.Bonfire, Icon = "fas-fire-alt", Path = Constants.Constants.Bonfire},
-                        new SoundSample{Name=AppResource.Night, Icon = "fas-cloud-moon", Path = Constants.Constants.Night},
-                        new SoundSample{Name=AppResource.Snowstorm, Icon = "fas-snowflake", Path = Constants.Constants.Snowstorm}
+                        new SoundSample{Name=AppResource.Fireplace, Icon = Helpers.ImageNameHelper.FirePLace, Path = Constants.Constants.Fireplace},
+                        new SoundSample{Name=AppResource.Nature, Icon=Helpers.ImageNameHelper.Forest, Path = Constants.Constants.Forest},
+                        new SoundSample{Name=AppResource.Storm, Icon=Helpers.ImageNameHelper.Storm, Path = Constants.Constants.Storm},
+                        new SoundSample{Name=AppResource.Rain, Icon=Helpers.ImageNameHelper.Rain, Path = Constants.Constants.SmallRain},
+                        new SoundSample{Name=AppResource.Sea, Icon = Helpers.ImageNameHelper.Sea, Path = Constants.Constants.Sea},
+                        new SoundSample{Name=AppResource.Space, Icon = Helpers.ImageNameHelper.Night, Path = Constants.Constants.Space},
+                        new SoundSample{Name=AppResource.Bonfire, Icon = Helpers.ImageNameHelper.Bonfire, Path = Constants.Constants.Bonfire},
+                        new SoundSample{Name=AppResource.Night, Icon = Helpers.ImageNameHelper.NightForest, Path = Constants.Constants.Night},
+                        new SoundSample{Name=AppResource.Snowstorm, Icon = Helpers.ImageNameHelper.SnowStorm, Path = Constants.Constants.Snowstorm}
                     }
                 },
                 new Category
@@ -57,12 +57,12 @@ namespace WhiteNoiseApp.ViewModels
                     Title = AppResource.Technick,
                     SoundsList = new ObservableCollection<SoundSample>
                     {
-                        new SoundSample{Name=AppResource.City, Icon = "fas-city", Path = Constants.Constants.City},
-                        new SoundSample{Name=AppResource.Helicopter, Icon = "fas-helicopter", Path = Constants.Constants.Helicopter},
-                        new SoundSample{Name=AppResource.Keyboard, Icon = "fas-keyboard", Path = Constants.Constants.Keyboard},
-                        new SoundSample{Name=AppResource.Mixer, Icon = "fas-blender", Path = Constants.Constants.Mixer},
-                        new SoundSample{Name=AppResource.CoffeeMashine, Icon = "fas-coffee", Path = Constants.Constants.CoffeeMashine},
-                        new SoundSample{Name=AppResource.Train, Icon = "fas-train", Path = Constants.Constants.Train}
+                        new SoundSample{Name=AppResource.City, Icon = Helpers.ImageNameHelper.City, Path = Constants.Constants.City},
+                        new SoundSample{Name=AppResource.Helicopter, Icon = Helpers.ImageNameHelper.Helicopter, Path = Constants.Constants.Helicopter},
+                        new SoundSample{Name=AppResource.Keyboard, Icon = Helpers.ImageNameHelper.Keyboard, Path = Constants.Constants.Keyboard},
+                        new SoundSample{Name=AppResource.Mixer, Icon = Helpers.ImageNameHelper.Mixer, Path = Constants.Constants.Mixer},
+                        new SoundSample{Name=AppResource.CoffeeMashine, Icon = Helpers.ImageNameHelper.CoffeeMashine, Path = Constants.Constants.CoffeeMashine},
+                        new SoundSample{Name=AppResource.Train, Icon = Helpers.ImageNameHelper.Train, Path = Constants.Constants.Train}
                     }
                 },
                 new Category
@@ -70,10 +70,10 @@ namespace WhiteNoiseApp.ViewModels
                     Title = AppResource.Other,
                     SoundsList = new ObservableCollection<SoundSample>
                     {
-                        new SoundSample{Name=AppResource.Animals, Icon = "fas-cat", Path = Constants.Constants.Cat},
-                        new SoundSample{Name=AppResource.Birds, Icon = "fas-dove", Path = Constants.Constants.Birds},
-                        new SoundSample{Name=AppResource.Sea, Icon = "fas-water", Path = Constants.Constants.UnderWater},
-                        new SoundSample{Name=AppResource.Snow, Icon = "fas-walking", Path = Constants.Constants.Snow}
+                        new SoundSample{Name=AppResource.Cats, Icon = Helpers.ImageNameHelper.Cat, Path = Constants.Constants.Cat},
+                        new SoundSample{Name=AppResource.Birds, Icon = Helpers.ImageNameHelper.Bird, Path = Constants.Constants.Birds},
+                        new SoundSample{Name=AppResource.Sea, Icon = Helpers.ImageNameHelper.UnderWater, Path = Constants.Constants.UnderWater},
+                        new SoundSample{Name=AppResource.Snow, Icon = Helpers.ImageNameHelper.Snow, Path = Constants.Constants.Snow}
                         
                     }
                 },

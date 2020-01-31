@@ -6,7 +6,7 @@ namespace WhiteNoiseApp.Constants
 {
     public static class Constants
     {
-        public const string Rain = "rain.mp3";
+        public const string SmallRain = "smallrain.mp3";
         public const string Birds = "birds.mp3";
         public const string Cat = "cat.mp3";
         public const string City = "city.mp3";

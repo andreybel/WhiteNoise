@@ -35,7 +35,7 @@
     <ContentPage.Content>
         <effects:GradientBackgroundEffect StartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
                                               EndColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}">
-            <Grid Margin="16,10"
+            <Grid Margin="10"
                   CompressedLayout.IsHeadless="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -70,17 +70,16 @@
                                                     <RowDefinition Height="Auto"/>
                                                     <RowDefinition Height="25"/>
                                                 </Grid.RowDefinitions>
-                                                <iconize:IconLabel Grid.Row="0"
-                                                       Padding="5"
+                                                <Image Grid.Row="0"
                                                        HorizontalOptions="Center"
-                                                       Text="{Binding Icon}" 
-                                                       FontSize="33"
-                                                       TextColor="{Binding IsSelected, Converter={StaticResource BoolToColorConverter}}"/>
+                                                       HeightRequest="60"
+                                                       WidthRequest="60"
+                                                       Source="{Binding Icon}"/>
                                                 <Label Grid.Row="1" 
-                                           HorizontalOptions="Center"
-                                           Text="{Binding Name}" 
-                                           FontSize="16" 
-                                           TextColor="{x:Static helpers:ColorsHelper.SecondaryColor}" Opacity=".95"/>
+                                                        HorizontalOptions="Center"
+                                                        Text="{Binding Name}" 
+                                                        FontSize="16" 
+                                                        TextColor="White" Opacity=".75"/>
                                             </Grid>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>

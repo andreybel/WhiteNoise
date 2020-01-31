@@ -126,6 +126,9 @@
   <data name="Bonfire" xml:space="preserve">
     <value>костер</value>
   </data>
+  <data name="Cats" xml:space="preserve">
+    <value>кошки</value>
+  </data>
   <data name="City" xml:space="preserve">
     <value>город</value>
   </data>

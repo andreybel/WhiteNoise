@@ -126,6 +126,9 @@
   <data name="Bonfire" xml:space="preserve">
     <value>bonfire</value>
   </data>
+  <data name="Cats" xml:space="preserve">
+    <value>cats</value>
+  </data>
   <data name="City" xml:space="preserve">
     <value>city</value>
   </data>
@@ -135,8 +138,8 @@
   <data name="Collection" xml:space="preserve">
     <value>collection</value>
   </data>
-  <data name="Fire" xml:space="preserve">
-    <value>bonfire</value>
+  <data name="Fireplace" xml:space="preserve">
+    <value>fireplace</value>
   </data>
   <data name="Helicopter" xml:space="preserve">
     <value>helicopter</value>
