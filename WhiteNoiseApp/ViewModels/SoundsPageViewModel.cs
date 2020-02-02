@@ -13,7 +13,6 @@ using WhiteNoiseApp.Resources;
 using WhiteNoiseApp.Views;
 using WhiteNoiseApp.Views.Popups;
 using Xamarin.Forms;
-using Plugin.SimpleAudioPlayer;
 using System.IO;
 using System.Reflection;
 using Xamarin.Essentials;
@@ -43,7 +42,7 @@ namespace WhiteNoiseApp.ViewModels
                     {
                         new SoundSample{Name=AppResource.Fireplace, Icon = Helpers.ImageNameHelper.FirePLace, Path = Constants.Constants.Fireplace},
                         new SoundSample{Name=AppResource.Forest, Icon=Helpers.ImageNameHelper.Forest, Path = Constants.Constants.Forest},
-                        new SoundSample{Name=AppResource.Storm, Icon=Helpers.ImageNameHelper.Storm, Path = Constants.Constants.Storm},
+                        new SoundSample{Name=AppResource.Storm, Icon=Helpers.ImageNameHelper.Storm, Path = Constants.Constants.Thunder},
                         new SoundSample{Name=AppResource.Rain, Icon=Helpers.ImageNameHelper.Rain, Path = Constants.Constants.SmallRain},
                         new SoundSample{Name=AppResource.Sea, Icon = Helpers.ImageNameHelper.Sea, Path = Constants.Constants.Sea},
                         new SoundSample{Name=AppResource.Space, Icon = Helpers.ImageNameHelper.Night, Path = Constants.Constants.Space},
@@ -97,6 +96,9 @@ namespace WhiteNoiseApp.ViewModels
                     }
                 },
             };
+
+            if (CrossMediaManager.Current.IsPlaying())
+                IsPlaying = true;
         }
 
         #region properties
@@ -140,12 +142,14 @@ namespace WhiteNoiseApp.ViewModels
         private async void OnPlaySound(SoundSample soundSample)
         {
             if (string.IsNullOrEmpty(soundSample.Path))
-                await _pageDialogService.DisplayAlertAsync(null,"no file", "OK");
+                await _pageDialogService.DisplayAlertAsync(null,AppResource.UnhandledError, "OK");
             else
             {
                 IsPlaying = true;
+                IsPaused = true;
                 await CrossMediaManager.Current.PlayFromAssembly(soundSample.Path);
                 CrossMediaManager.Current.RepeatMode = MediaManager.Playback.RepeatMode.One;
+                CrossMediaManager.Current.Queue.Current.FileName = null;
             }
         }
 
@@ -200,8 +204,10 @@ namespace WhiteNoiseApp.ViewModels
                 Debug.WriteLine(soundTimer.Time + " min. timer started. Time: "+ DateTime.Now.TimeOfDay.ToString());
                 Device.StartTimer(TimeSpan.FromMinutes(timeSpan), (() => StopPlaying()));
             }
+
             base.OnNavigatedTo(parameters);
         }
+
         #endregion
 
         #region privates

@@ -14,7 +14,7 @@ namespace WhiteNoiseApp.Constants
         public const string Forest = "forest.mp3";
         public const string Sea = "sea.mp3";
         public const string Space = "space.mp3";
-        public const string Storm = "storm.mp3";
+        public const string Thunder = "thunder.mp3";
         public const string UnderWater = "underWater.mp3";
         public const string Bonfire = "bonfire.mp3";
         public const string Helicopter = "helicopter.mp3";
