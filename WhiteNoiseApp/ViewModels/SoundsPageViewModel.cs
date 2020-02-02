@@ -42,7 +42,7 @@ namespace WhiteNoiseApp.ViewModels
                     SoundsList = new ObservableCollection<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Fireplace, Icon = Helpers.ImageNameHelper.FirePLace, Path = Constants.Constants.Fireplace},
-                        new SoundSample{Name=AppResource.Nature, Icon=Helpers.ImageNameHelper.Forest, Path = Constants.Constants.Forest},
+                        new SoundSample{Name=AppResource.Forest, Icon=Helpers.ImageNameHelper.Forest, Path = Constants.Constants.Forest},
                         new SoundSample{Name=AppResource.Storm, Icon=Helpers.ImageNameHelper.Storm, Path = Constants.Constants.Storm},
                         new SoundSample{Name=AppResource.Rain, Icon=Helpers.ImageNameHelper.Rain, Path = Constants.Constants.SmallRain},
                         new SoundSample{Name=AppResource.Sea, Icon = Helpers.ImageNameHelper.Sea, Path = Constants.Constants.Sea},
@@ -62,19 +62,38 @@ namespace WhiteNoiseApp.ViewModels
                         new SoundSample{Name=AppResource.Keyboard, Icon = Helpers.ImageNameHelper.Keyboard, Path = Constants.Constants.Keyboard},
                         new SoundSample{Name=AppResource.Mixer, Icon = Helpers.ImageNameHelper.Mixer, Path = Constants.Constants.Mixer},
                         new SoundSample{Name=AppResource.CoffeeMashine, Icon = Helpers.ImageNameHelper.CoffeeMashine, Path = Constants.Constants.CoffeeMashine},
-                        new SoundSample{Name=AppResource.Train, Icon = Helpers.ImageNameHelper.Train, Path = Constants.Constants.Train}
+                        new SoundSample{Name=AppResource.Train, Icon = Helpers.ImageNameHelper.Train, Path = Constants.Constants.Train},
+                        new SoundSample{Name=AppResource.Calculator, Icon = Helpers.ImageNameHelper.Calculator, Path = Constants.Constants.Calculator},
+                        new SoundSample{Name=AppResource.Laminator, Icon = Helpers.ImageNameHelper.Laminator, Path = Constants.Constants.Laminator},
+                        new SoundSample{Name=AppResource.Sail, Icon = Helpers.ImageNameHelper.Sail, Path = Constants.Constants.Sail}
                     }
                 },
                 new Category
                 {
-                    Title = AppResource.Other,
+                    Title = AppResource.ASMR,
                     SoundsList = new ObservableCollection<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Cats, Icon = Helpers.ImageNameHelper.Cat, Path = Constants.Constants.Cat},
                         new SoundSample{Name=AppResource.Birds, Icon = Helpers.ImageNameHelper.Bird, Path = Constants.Constants.Birds},
                         new SoundSample{Name=AppResource.Sea, Icon = Helpers.ImageNameHelper.UnderWater, Path = Constants.Constants.UnderWater},
-                        new SoundSample{Name=AppResource.Snow, Icon = Helpers.ImageNameHelper.Snow, Path = Constants.Constants.Snow}
+                        new SoundSample{Name=AppResource.Snow, Icon = Helpers.ImageNameHelper.Snow, Path = Constants.Constants.Snow},
+                        new SoundSample{Name=AppResource.Pen, Icon = Helpers.ImageNameHelper.Pen, Path = Constants.Constants.Pen},
+                        new SoundSample{Name=AppResource.Pencil, Icon = Helpers.ImageNameHelper.Pencil, Path = Constants.Constants.Pencil},
+                        new SoundSample{Name=AppResource.Scissors, Icon = Helpers.ImageNameHelper.Scissors, Path = Constants.Constants.Scissors},
+                        new SoundSample{Name=AppResource.Chalk, Icon = Helpers.ImageNameHelper.Chalk, Path = Constants.Constants.Chalk},
+                        new SoundSample{Name=AppResource.Clock, Icon = Helpers.ImageNameHelper.Clock, Path = Constants.Constants.Clock}
                         
+                    }
+                },
+                new Category
+                {
+                    Title = AppResource.Instruments,
+                    SoundsList = new ObservableCollection<SoundSample>
+                    {
+                        new SoundSample{Name=AppResource.Harp, Icon = Helpers.ImageNameHelper.Harp, Path = Constants.Constants.Harp},
+                        new SoundSample{Name=AppResource.Flute, Icon = Helpers.ImageNameHelper.Flute, Path = Constants.Constants.Flute},
+                        new SoundSample{Name=AppResource.Tambourine, Icon = Helpers.ImageNameHelper.Tambourine, Path = Constants.Constants.Tambourine}
+
                     }
                 },
             };

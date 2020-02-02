@@ -23,9 +23,11 @@
             </Style>
             <Style TargetType="Label" x:Key="HeaderLabel">
                 <Setter Property="FontSize"
-                        Value="30"/>
+                        Value="28"/>
                 <Setter Property="TextColor"
-                        Value="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
+                        Value="White"/>
+                <Setter Property="Opacity"
+                        Value=".75"/>
                 <Setter Property="FontFamily"
                         Value="{StaticResource montserrat}"/>
                 <Setter Property="HorizontalOptions"

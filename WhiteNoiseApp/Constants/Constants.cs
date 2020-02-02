@@ -27,5 +27,17 @@ namespace WhiteNoiseApp.Constants
         public const string Train = "train.mp3";
         public const string Wind = "wind.mp3";
         public const string CoffeeMashine = "coffeeMashine.mp3";
+        public const string Clock = "clock.mp3";
+        public const string Chalk = "chalk.mp3";
+        public const string Flute = "flute.mp3";
+        public const string Harbor = "harbor.mp3";
+        public const string Harp = "harp.mp3";
+        public const string Pen = "pen.mp3";
+        public const string Pencil = "pencil.mp3";
+        public const string Scissors = "scissors.mp3";
+        public const string Tambourine = "tambourine.mp3";
+        public const string Laminator = "laminator.mp3";
+        public const string Calculator = "calculator.mp3";
+        public const string Sail = "sail.mp3";
     }
 }

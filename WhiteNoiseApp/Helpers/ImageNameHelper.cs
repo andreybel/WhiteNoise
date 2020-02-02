@@ -28,6 +28,17 @@
         public static string Storm = "ic_storm.png";
         public static string Train = "ic_train.png";
         public static string UnderWater = "ic_underwater.png";
+        public static string Calculator = "ic_calculator.png";
+        public static string Chalk = "ic_chalk.png";
+        public static string Clock = "ic_clock.png";
+        public static string Flute = "ic_flute.png";
+        public static string Harp = "ic_harp.png";
+        public static string Laminator = "ic_laminator.png";
+        public static string Pen = "ic_pen.png";
+        public static string Pencil = "ic_pencil.png";
+        public static string Sail = "ic_sail.png";
+        public static string Scissors = "ic_scissors.png";
+        public static string Tambourine = "ic_tambourine.png";
        
     }
 }

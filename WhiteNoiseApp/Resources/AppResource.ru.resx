@@ -120,17 +120,29 @@
   <data name="Animals" xml:space="preserve">
     <value>звери</value>
   </data>
+  <data name="ASMR" xml:space="preserve">
+    <value>асмр</value>
+  </data>
   <data name="Birds" xml:space="preserve">
     <value>птицы</value>
   </data>
   <data name="Bonfire" xml:space="preserve">
     <value>костер</value>
   </data>
+  <data name="Calculator" xml:space="preserve">
+    <value>калькулятор</value>
+  </data>
   <data name="Cats" xml:space="preserve">
     <value>кошки</value>
   </data>
+  <data name="Chalk" xml:space="preserve">
+    <value>грифель</value>
+  </data>
   <data name="City" xml:space="preserve">
     <value>город</value>
+  </data>
+  <data name="Clock" xml:space="preserve">
+    <value>часы</value>
   </data>
   <data name="CoffeeMashine" xml:space="preserve">
     <value>кофеварка</value>
@@ -141,14 +153,32 @@
   <data name="Fireplace" xml:space="preserve">
     <value>камин</value>
   </data>
+  <data name="Flute" xml:space="preserve">
+    <value>флейта</value>
+  </data>
+  <data name="Forest" xml:space="preserve">
+    <value>лес</value>
+  </data>
+  <data name="Harbor" xml:space="preserve">
+    <value>варган</value>
+  </data>
+  <data name="Harp" xml:space="preserve">
+    <value>арфа</value>
+  </data>
   <data name="Helicopter" xml:space="preserve">
     <value>вертолет</value>
   </data>
   <data name="Hurricane" xml:space="preserve">
     <value>ураган</value>
   </data>
+  <data name="Instruments" xml:space="preserve">
+    <value>инструменты</value>
+  </data>
   <data name="Keyboard" xml:space="preserve">
     <value>клавиатура</value>
+  </data>
+  <data name="Laminator" xml:space="preserve">
+    <value>ламинатор</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>мин.</value>
@@ -168,6 +198,12 @@
   <data name="Other" xml:space="preserve">
     <value>разное</value>
   </data>
+  <data name="Pen" xml:space="preserve">
+    <value>ручка</value>
+  </data>
+  <data name="Pencil" xml:space="preserve">
+    <value>карандаш</value>
+  </data>
   <data name="Piano" xml:space="preserve">
     <value>фортепиано</value>
   </data>
@@ -182,6 +218,12 @@
   </data>
   <data name="Relax" xml:space="preserve">
     <value>релакс</value>
+  </data>
+  <data name="Sail" xml:space="preserve">
+    <value>парусник</value>
+  </data>
+  <data name="Scissors" xml:space="preserve">
+    <value>ножницы</value>
   </data>
   <data name="Sea" xml:space="preserve">
     <value>море</value>
@@ -198,6 +240,9 @@
   <data name="Storm" xml:space="preserve">
     <value>гроза</value>
   </data>
+  <data name="Tambourine" xml:space="preserve">
+    <value>тамбурин</value>
+  </data>
   <data name="Technick" xml:space="preserve">
     <value>техника</value>
   </data>
@@ -211,13 +256,13 @@
     <value>под водой</value>
   </data>
   <data name="UnhandledError" xml:space="preserve">
-    <value>unhandled error</value>
+    <value>Непредвиденная ошибка</value>
   </data>
   <data name="VolumeSettings" xml:space="preserve">
     <value>Громкость</value>
   </data>
   <data name="Warning" xml:space="preserve">
-    <value>Warning</value>
+    <value>Внимание</value>
   </data>
   <data name="Whisper" xml:space="preserve">
     <value>шёпот</value>

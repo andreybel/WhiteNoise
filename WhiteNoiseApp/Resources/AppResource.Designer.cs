@@ -70,6 +70,15 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на asmr.
+        /// </summary>
+        internal static string ASMR {
+            get {
+                return ResourceManager.GetString("ASMR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на birds.
         /// </summary>
         internal static string Birds {
@@ -88,6 +97,15 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на calculator.
+        /// </summary>
+        internal static string Calculator {
+            get {
+                return ResourceManager.GetString("Calculator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на cats.
         /// </summary>
         internal static string Cats {
@@ -97,11 +115,29 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на chalk.
+        /// </summary>
+        internal static string Chalk {
+            get {
+                return ResourceManager.GetString("Chalk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на city.
         /// </summary>
         internal static string City {
             get {
                 return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на clock.
+        /// </summary>
+        internal static string Clock {
+            get {
+                return ResourceManager.GetString("Clock", resourceCulture);
             }
         }
         
@@ -133,6 +169,42 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на flute.
+        /// </summary>
+        internal static string Flute {
+            get {
+                return ResourceManager.GetString("Flute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на forest.
+        /// </summary>
+        internal static string Forest {
+            get {
+                return ResourceManager.GetString("Forest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на harbor.
+        /// </summary>
+        internal static string Harbor {
+            get {
+                return ResourceManager.GetString("Harbor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на harp.
+        /// </summary>
+        internal static string Harp {
+            get {
+                return ResourceManager.GetString("Harp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на helicopter.
         /// </summary>
         internal static string Helicopter {
@@ -151,11 +223,29 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на instruments.
+        /// </summary>
+        internal static string Instruments {
+            get {
+                return ResourceManager.GetString("Instruments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на keyboard.
         /// </summary>
         internal static string Keyboard {
             get {
                 return ResourceManager.GetString("Keyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на laminator.
+        /// </summary>
+        internal static string Laminator {
+            get {
+                return ResourceManager.GetString("Laminator", resourceCulture);
             }
         }
         
@@ -214,6 +304,24 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на pen.
+        /// </summary>
+        internal static string Pen {
+            get {
+                return ResourceManager.GetString("Pen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на pencil.
+        /// </summary>
+        internal static string Pencil {
+            get {
+                return ResourceManager.GetString("Pencil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на piano.
         /// </summary>
         internal static string Piano {
@@ -255,6 +363,24 @@ namespace WhiteNoiseApp.Resources {
         internal static string Relax {
             get {
                 return ResourceManager.GetString("Relax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на sail.
+        /// </summary>
+        internal static string Sail {
+            get {
+                return ResourceManager.GetString("Sail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на scissors.
+        /// </summary>
+        internal static string Scissors {
+            get {
+                return ResourceManager.GetString("Scissors", resourceCulture);
             }
         }
         
@@ -304,6 +430,15 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на tabour.
+        /// </summary>
+        internal static string Tambourine {
+            get {
+                return ResourceManager.GetString("Tambourine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на technick.
         /// </summary>
         internal static string Technick {
@@ -340,7 +475,7 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Непредвиденная ошибка.
+        ///   Ищет локализованную строку, похожую на UnhandledError.
         /// </summary>
         internal static string UnhandledError {
             get {
@@ -358,7 +493,7 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Внимание.
+        ///   Ищет локализованную строку, похожую на Warning.
         /// </summary>
         internal static string Warning {
             get {
