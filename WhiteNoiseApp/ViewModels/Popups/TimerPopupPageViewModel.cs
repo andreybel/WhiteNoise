@@ -1,5 +1,4 @@
-﻿using MediaManager;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
@@ -65,7 +64,7 @@ namespace WhiteNoiseApp.ViewModels.Popups
             else
             {
                 _pageDialogService.DisplayAlertAsync(AppResource.Warning, AppResource.UnhandledError,"OK");
-                CrossMediaManager.Current.Stop();
+                //CrossMediaManager.Current.Stop();
                 PopupNavigation.Instance.PopAsync();
             }
         }

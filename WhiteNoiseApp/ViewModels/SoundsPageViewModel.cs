@@ -1,5 +1,4 @@
-﻿using MediaManager;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Navigation.TabbedPages;
@@ -27,14 +26,14 @@ namespace WhiteNoiseApp.ViewModels
         #region fields
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService _pageDialogService;
-        //private ISimpleAudioPlayer player;
+        private ISimpleAudioPlayer player;
         #endregion
 
         public SoundsPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
-            //player = CrossSimpleAudioPlayer.Current;
+            player = CrossSimpleAudioPlayer.Current;
 
             Categories = new ObservableCollection<Category>
             {
@@ -102,8 +101,8 @@ namespace WhiteNoiseApp.ViewModels
 
             //if (CrossMediaManager.Current.IsPlaying())
             //    IsPlaying = true;
-            //if (player.IsPlaying)
-            //    IsPlaying = true;
+            if (player.IsPlaying)
+                IsPlaying = true;
         }
 
         #region properties
@@ -148,20 +147,20 @@ namespace WhiteNoiseApp.ViewModels
 
         private async void OnPlaySound(SoundSample soundSample)
         {
-            //if (string.IsNullOrEmpty(soundSample.Path))
-            //    await _pageDialogService.DisplayAlertAsync(null,AppResource.UnhandledError, "OK");
-            //else
-            //{
-            //    soundSample.IsSelected = true;
-            //    IsPlaying = true;
-            //    IsPaused = true;
-            //    player.Load(GetStreamFromFile(soundSample.Path));
-            //    player.Play();
-            //    player.Loop = true;
-            //    //await CrossMediaManager.Current.PlayFromAssembly(soundSample.Path);
-            //    //CrossMediaManager.Current.RepeatMode = MediaManager.Playback.RepeatMode.One;
-            //    //CrossMediaManager.Current.Queue.Current.FileName = null;
-            //}
+            if (string.IsNullOrEmpty(soundSample.Path))
+                await _pageDialogService.DisplayAlertAsync(null, AppResource.UnhandledError, "OK");
+            else
+            {
+                soundSample.IsSelected = true;
+                IsPlaying = true;
+                IsPaused = true;
+                player.Load(GetStreamFromFile(soundSample.Path));
+                player.Play();
+                player.Loop = true;
+                //await CrossMediaManager.Current.PlayFromAssembly(soundSample.Path);
+                //CrossMediaManager.Current.RepeatMode = MediaManager.Playback.RepeatMode.One;
+                //CrossMediaManager.Current.Queue.Current.FileName = null;
+            }
         }
 
         private DelegateCommand _stopCommand;
@@ -169,10 +168,10 @@ namespace WhiteNoiseApp.ViewModels
 
         private async void OnStopSound()
         {
-            //IsPlaying = false;
-            //IsPaused = true;
+            IsPlaying = false;
+            IsPaused = true;
             ////await CrossMediaManager.Current.Stop();
-            //player.Stop();
+            player.Stop();
         }
 
         private DelegateCommand _pauseCommand;
@@ -186,18 +185,17 @@ namespace WhiteNoiseApp.ViewModels
             //    IsPaused = true;
             //CrossMediaManager.Current.PlayPause();
 
-            //if (player.IsPlaying)
-            //{
-            //    IsPaused = false;
-            //    player.Pause();
-            //}
-            //else
-            //{
-            //    IsPaused = true;
-            //    player.Play();
-            //}
-                
-            
+            if (player.IsPlaying)
+            {
+                IsPaused = false;
+                player.Pause();
+            }
+            else
+            {
+                IsPaused = true;
+                player.Play();
+            }
+
         }
 
         private DelegateCommand _volumeCommand;
@@ -239,7 +237,7 @@ namespace WhiteNoiseApp.ViewModels
         private bool StopPlaying()
         {
             //CrossMediaManager.Current.Stop();
-            //player.Stop();
+            player.Stop();
             Debug.WriteLine("Timer stopped. Time: " + DateTime.Now.TimeOfDay.ToString());
             IsPlaying = false;
             return false;

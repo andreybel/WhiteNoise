@@ -195,9 +195,6 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>2.6.4</Version>
     </PackageReference>
-    <PackageReference Include="Plugin.MediaManager">
-      <Version>0.9.6</Version>
-    </PackageReference>
     <PackageReference Include="Prism.Core">
       <Version>7.2.0.1422</Version>
     </PackageReference>

@@ -2,7 +2,6 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
-using MediaManager;
 using Prism;
 using Prism.Ioc;
 using WhiteNoiseApp.Interfaces;
