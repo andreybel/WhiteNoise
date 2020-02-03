@@ -18,6 +18,7 @@ using System.Reflection;
 using Xamarin.Essentials;
 using System.Diagnostics;
 using System.Threading;
+using Plugin.SimpleAudioPlayer;
 
 namespace WhiteNoiseApp.ViewModels
 {
@@ -26,12 +27,14 @@ namespace WhiteNoiseApp.ViewModels
         #region fields
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService _pageDialogService;
+        private ISimpleAudioPlayer player;
         #endregion
 
         public SoundsPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
+            player = CrossSimpleAudioPlayer.Current;
 
             Categories = new ObservableCollection<Category>
             {
@@ -97,11 +100,15 @@ namespace WhiteNoiseApp.ViewModels
                 },
             };
 
-            if (CrossMediaManager.Current.IsPlaying())
+            //if (CrossMediaManager.Current.IsPlaying())
+            //    IsPlaying = true;
+            if (player.IsPlaying)
                 IsPlaying = true;
         }
 
         #region properties
+
+
         private Category _category;
         public Category Category
         {
@@ -145,11 +152,15 @@ namespace WhiteNoiseApp.ViewModels
                 await _pageDialogService.DisplayAlertAsync(null,AppResource.UnhandledError, "OK");
             else
             {
+                soundSample.IsSelected = true;
                 IsPlaying = true;
                 IsPaused = true;
-                await CrossMediaManager.Current.PlayFromAssembly(soundSample.Path);
-                CrossMediaManager.Current.RepeatMode = MediaManager.Playback.RepeatMode.One;
-                CrossMediaManager.Current.Queue.Current.FileName = null;
+                player.Load(GetStreamFromFile(soundSample.Path));
+                player.Play();
+                player.Loop = true;
+                //await CrossMediaManager.Current.PlayFromAssembly(soundSample.Path);
+                //CrossMediaManager.Current.RepeatMode = MediaManager.Playback.RepeatMode.One;
+                //CrossMediaManager.Current.Queue.Current.FileName = null;
             }
         }
 
@@ -160,7 +171,8 @@ namespace WhiteNoiseApp.ViewModels
         {
             IsPlaying = false;
             IsPaused = true;
-            await CrossMediaManager.Current.Stop();
+            //await CrossMediaManager.Current.Stop();
+            player.Stop();
         }
 
         private DelegateCommand _pauseCommand;
@@ -168,11 +180,24 @@ namespace WhiteNoiseApp.ViewModels
 
         private void OnPause()
         {
-            if (CrossMediaManager.Current.IsPlaying())
+            //if (CrossMediaManager.Current.IsPlaying())
+            //    IsPaused = false;
+            //else
+            //    IsPaused = true;
+            //CrossMediaManager.Current.PlayPause();
+
+            if (player.IsPlaying)
+            {
                 IsPaused = false;
+                player.Pause();
+            }
             else
+            {
                 IsPaused = true;
-            CrossMediaManager.Current.PlayPause();
+                player.Play();
+            }
+                
+            
         }
 
         private DelegateCommand _volumeCommand;
@@ -213,7 +238,8 @@ namespace WhiteNoiseApp.ViewModels
         #region privates
         private bool StopPlaying()
         {
-            CrossMediaManager.Current.Stop();
+            //CrossMediaManager.Current.Stop();
+            player.Stop();
             Debug.WriteLine("Timer stopped. Time: " + DateTime.Now.TimeOfDay.ToString());
             IsPlaying = false;
             return false;
@@ -226,6 +252,13 @@ namespace WhiteNoiseApp.ViewModels
                 Title = title,
                 SoundsList = soundSamples
             };
+        }
+
+        private Stream GetStreamFromFile(string filename)
+        {
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+            var stream = assembly.GetManifestResourceStream("WhiteNoiseApp.Sounds." + filename);
+            return stream;
         }
         #endregion
     }
