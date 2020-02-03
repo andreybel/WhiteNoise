@@ -9,6 +9,7 @@ using Prism.Plugin.Popups;
 using Prism.Unity;
 using WhiteNoiseApp.Interfaces;
 using WhiteNoiseApp.Resources;
+using WhiteNoiseApp.Services;
 using WhiteNoiseApp.ViewModels;
 using WhiteNoiseApp.ViewModels.Popups;
 using WhiteNoiseApp.Views;
@@ -34,7 +35,7 @@ namespace WhiteNoiseApp
 
         public App(IPlatformInitializer initializer) : base(initializer){}
 
-        protected override async void OnInitialized()
+        protected override void OnInitialized()
         {
             InitializeComponent();
 
@@ -43,14 +44,8 @@ namespace WhiteNoiseApp
                 "IndicatorView_Experimental",
                 "SwipeView_Experimental"});
 
-            var urlNav =
-                $"/{nameof(BottomTabbedPage)}?{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(SoundsPage)}" +
-                //$"&{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(PlaySoundPage)}" +
-                $"&{KnownNavigationParameters.CreateTab}={nameof(NavigationPage)}|{nameof(FavoritesPage)}";
 
 
-            //await NavigationService.NavigateAsync(urlNav);
-            //await NavigationService.NavigateAsync("NavigationPage/SoundsPage");
             MainPage = new SoundsPage();
         }
         protected override void Initialize()
@@ -67,14 +62,14 @@ namespace WhiteNoiseApp
             containerRegistry.RegisterPopupNavigationService();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<BottomTabbedPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<SoundsPage, SoundsPageViewModel>();
             containerRegistry.RegisterForNavigation<PlaySoundPage, PlaySoundPageViewModel>();
             containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
-            containerRegistry.RegisterForNavigation<MainCarouselPage, MainCarouselPageViewModel>();
             containerRegistry.RegisterForNavigation<VolumePopupPage, VolumePopupPageViewModel>();
             containerRegistry.RegisterForNavigation<TimerPopupPage, TimerPopupPageViewModel>();
+
+            containerRegistry.Register<IAudioPlayerService, AudioPlayerService>();
         }
 
         protected override void OnStart()

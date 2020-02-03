@@ -18,6 +18,7 @@ using Xamarin.Essentials;
 using System.Diagnostics;
 using System.Threading;
 using Plugin.SimpleAudioPlayer;
+using System.Threading.Tasks;
 
 namespace WhiteNoiseApp.ViewModels
 {
@@ -26,7 +27,7 @@ namespace WhiteNoiseApp.ViewModels
         #region fields
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService _pageDialogService;
-        private ISimpleAudioPlayer player;
+        private readonly ISimpleAudioPlayer player;
         #endregion
 
         public SoundsPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
@@ -98,9 +99,6 @@ namespace WhiteNoiseApp.ViewModels
                     }
                 },
             };
-
-            //if (CrossMediaManager.Current.IsPlaying())
-            //    IsPlaying = true;
             if (player.IsPlaying)
                 IsPlaying = true;
         }
@@ -157,9 +155,6 @@ namespace WhiteNoiseApp.ViewModels
                 player.Load(GetStreamFromFile(soundSample.Path));
                 player.Play();
                 player.Loop = true;
-                //await CrossMediaManager.Current.PlayFromAssembly(soundSample.Path);
-                //CrossMediaManager.Current.RepeatMode = MediaManager.Playback.RepeatMode.One;
-                //CrossMediaManager.Current.Queue.Current.FileName = null;
             }
         }
 
@@ -170,8 +165,7 @@ namespace WhiteNoiseApp.ViewModels
         {
             IsPlaying = false;
             IsPaused = true;
-            ////await CrossMediaManager.Current.Stop();
-            player.Stop();
+            await Task.Run(()=> player.Stop());
         }
 
         private DelegateCommand _pauseCommand;
@@ -179,12 +173,6 @@ namespace WhiteNoiseApp.ViewModels
 
         private void OnPause()
         {
-            //if (CrossMediaManager.Current.IsPlaying())
-            //    IsPaused = false;
-            //else
-            //    IsPaused = true;
-            //CrossMediaManager.Current.PlayPause();
-
             if (player.IsPlaying)
             {
                 IsPaused = false;
@@ -236,7 +224,6 @@ namespace WhiteNoiseApp.ViewModels
         #region privates
         private bool StopPlaying()
         {
-            //CrossMediaManager.Current.Stop();
             player.Stop();
             Debug.WriteLine("Timer stopped. Time: " + DateTime.Now.TimeOfDay.ToString());
             IsPlaying = false;
