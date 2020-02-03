@@ -64,8 +64,6 @@ namespace WhiteNoiseApp
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<SoundsPage, SoundsPageViewModel>();
-            containerRegistry.RegisterForNavigation<PlaySoundPage, PlaySoundPageViewModel>();
-            containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
             containerRegistry.RegisterForNavigation<VolumePopupPage, VolumePopupPageViewModel>();
             containerRegistry.RegisterForNavigation<TimerPopupPage, TimerPopupPageViewModel>();
 
