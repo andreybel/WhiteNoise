@@ -249,6 +249,9 @@
   <data name="TimerSettings" xml:space="preserve">
     <value>Timer</value>
   </data>
+  <data name="TimerStarted" xml:space="preserve">
+    <value>timer started</value>
+  </data>
   <data name="Train" xml:space="preserve">
     <value>train</value>
   </data>

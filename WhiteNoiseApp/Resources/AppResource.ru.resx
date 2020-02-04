@@ -249,6 +249,9 @@
   <data name="TimerSettings" xml:space="preserve">
     <value>Таймер отключения</value>
   </data>
+  <data name="TimerStarted" xml:space="preserve">
+    <value>таймер запущен</value>
+  </data>
   <data name="Train" xml:space="preserve">
     <value>поезд</value>
   </data>

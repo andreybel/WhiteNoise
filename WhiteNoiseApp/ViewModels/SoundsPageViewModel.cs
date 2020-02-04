@@ -19,6 +19,7 @@ using System.Diagnostics;
 using System.Threading;
 using Plugin.SimpleAudioPlayer;
 using System.Threading.Tasks;
+using WhiteNoiseApp.Interfaces;
 
 namespace WhiteNoiseApp.ViewModels
 {
@@ -27,14 +28,20 @@ namespace WhiteNoiseApp.ViewModels
         #region fields
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService _pageDialogService;
-        private readonly ISimpleAudioPlayer player;
+        private readonly IAudioPlayerService _audioPLayerService;
+        private readonly IToastMessage _toastMessage;
+        private double _timeSpan;
         #endregion
 
-        public SoundsPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        public SoundsPageViewModel(INavigationService navigationService
+            , IPageDialogService pageDialogService
+            , IAudioPlayerService audioPlayerService
+            , IToastMessage toastMessage)
         {
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
-            player = CrossSimpleAudioPlayer.Current;
+            _audioPLayerService = audioPlayerService;
+            _toastMessage = toastMessage;
 
             Categories = new ObservableCollection<Category>
             {
@@ -49,7 +56,7 @@ namespace WhiteNoiseApp.ViewModels
                         new SoundSample{Name=AppResource.Rain, Icon=Helpers.ImageNameHelper.Rain, Path = Constants.Constants.SmallRain},
                         new SoundSample{Name=AppResource.Sea, Icon = Helpers.ImageNameHelper.Sea, Path = Constants.Constants.Sea},
                         new SoundSample{Name=AppResource.Space, Icon = Helpers.ImageNameHelper.Night, Path = Constants.Constants.Space},
-                        new SoundSample{Name=AppResource.Bonfire, Icon = Helpers.ImageNameHelper.Bonfire, Path = Constants.Constants.Bonfire},
+                        new SoundSample{Name=AppResource.Bonfire, Icon = Helpers.ImageNameHelper.Bonfire1, Path = Constants.Constants.Bonfire},
                         new SoundSample{Name=AppResource.Night, Icon = Helpers.ImageNameHelper.NightForest, Path = Constants.Constants.Night},
                         new SoundSample{Name=AppResource.Snowstorm, Icon = Helpers.ImageNameHelper.SnowStorm, Path = Constants.Constants.Snowstorm}
                     }
@@ -99,7 +106,7 @@ namespace WhiteNoiseApp.ViewModels
                     }
                 },
             };
-            if (player.IsPlaying)
+            if (_audioPLayerService.IsPlaying())
                 IsPlaying = true;
         }
 
@@ -149,23 +156,20 @@ namespace WhiteNoiseApp.ViewModels
                 await _pageDialogService.DisplayAlertAsync(null, AppResource.UnhandledError, "OK");
             else
             {
-                soundSample.IsSelected = true;
                 IsPlaying = true;
                 IsPaused = true;
-                player.Load(GetStreamFromFile(soundSample.Path));
-                player.Play();
-                player.Loop = true;
+                _audioPLayerService.Play(soundSample.Path, true);
             }
         }
 
         private DelegateCommand _stopCommand;
         public DelegateCommand StopCommand => (_stopCommand ?? (_stopCommand = new DelegateCommand(OnStopSound)));
 
-        private async void OnStopSound()
+        private void OnStopSound()
         {
             IsPlaying = false;
             IsPaused = true;
-            await Task.Run(()=> player.Stop());
+            _audioPLayerService.Stop();
         }
 
         private DelegateCommand _pauseCommand;
@@ -173,16 +177,8 @@ namespace WhiteNoiseApp.ViewModels
 
         private void OnPause()
         {
-            if (player.IsPlaying)
-            {
-                IsPaused = false;
-                player.Pause();
-            }
-            else
-            {
-                IsPaused = true;
-                player.Play();
-            }
+            _audioPLayerService.Pause();
+            IsPaused = _audioPLayerService.IsPlaying();
 
         }
 
@@ -211,9 +207,10 @@ namespace WhiteNoiseApp.ViewModels
             Debug.WriteLine("SoundsPageViewModel OnNavigatedTo()");
             if (parameters.TryGetValue(nameof(SoundTimer), out SoundTimer soundTimer))
             {
-                var timeSpan = double.Parse(soundTimer.Time);
+                _timeSpan = double.Parse(soundTimer.Time)*60;
                 Debug.WriteLine(soundTimer.Time + " min. timer started. Time: "+ DateTime.Now.TimeOfDay.ToString());
-                Device.StartTimer(TimeSpan.FromMinutes(timeSpan), (() => StopPlaying()));
+                _toastMessage.ShowMessage(AppResource.TimerStarted);
+                Device.StartTimer(TimeSpan.FromSeconds(_timeSpan), (() => StopPlaying()));
             }
 
             base.OnNavigatedTo(parameters);
@@ -224,9 +221,9 @@ namespace WhiteNoiseApp.ViewModels
         #region privates
         private bool StopPlaying()
         {
-            player.Stop();
-            Debug.WriteLine("Timer stopped. Time: " + DateTime.Now.TimeOfDay.ToString());
+            _audioPLayerService.Stop();
             IsPlaying = false;
+            Debug.WriteLine("Timer stopped. Time: " + DateTime.Now.TimeOfDay.ToString());
             return false;
         }
 
@@ -237,13 +234,6 @@ namespace WhiteNoiseApp.ViewModels
                 Title = title,
                 SoundsList = soundSamples
             };
-        }
-
-        private Stream GetStreamFromFile(string filename)
-        {
-            var assembly = typeof(App).GetTypeInfo().Assembly;
-            var stream = assembly.GetManifestResourceStream("WhiteNoiseApp.Sounds." + filename);
-            return stream;
         }
         #endregion
     }

@@ -64,7 +64,6 @@ namespace WhiteNoiseApp.ViewModels.Popups
             else
             {
                 _pageDialogService.DisplayAlertAsync(AppResource.Warning, AppResource.UnhandledError,"OK");
-                //CrossMediaManager.Current.Stop();
                 PopupNavigation.Instance.PopAsync();
             }
         }

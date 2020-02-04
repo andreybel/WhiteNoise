@@ -10,6 +10,7 @@
         public static string SoundTimer = "ic_timer.png";
         public static string Bird = "ic_bird.png";
         public static string Bonfire = "ic_bonfire.png";
+        public static string Bonfire1 = "ic_bonfire1.png";
         public static string Cat = "ic_cat.png";
         public static string City = "ic_city.png";
         public static string CoffeeMashine = "ic_coffeemashine.png";

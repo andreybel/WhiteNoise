@@ -14,6 +14,11 @@ namespace WhiteNoiseApp.Services
     {
         private readonly ISimpleAudioPlayer player = CrossSimpleAudioPlayer.Current;
 
+        public bool IsPlaying()
+        {
+            return player.IsPlaying;
+        }
+
         public void OnVolumeChanged(object sender, ValueChangedEventArgs e)
         {
             
@@ -31,11 +36,11 @@ namespace WhiteNoiseApp.Services
             }
         }
 
-        public void Play(string path)
+        public void Play(string path, bool repeat)
         {
             player.Load(GetStreamFromFile(path));
             player.Play();
-            player.Loop = true;
+            player.Loop = repeat;
         }
 
         public void Stop()

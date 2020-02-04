@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Prism;
 using Prism.Ioc;
+using WhiteNoiseApp.Droid.Services;
 using WhiteNoiseApp.Interfaces;
 using Xamarin.Forms;
 
@@ -45,6 +46,7 @@ namespace WhiteNoiseApp.Droid
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Register any platform specific implementations
+            containerRegistry.Register<IToastMessage, ToastMessage>();
         }
     }
 }

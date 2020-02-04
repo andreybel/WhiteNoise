@@ -23,7 +23,7 @@
             </Style>
             <Style TargetType="Label" x:Key="HeaderLabel">
                 <Setter Property="FontSize"
-                        Value="28"/>
+                        Value="25"/>
                 <Setter Property="TextColor"
                         Value="White"/>
                 <Setter Property="Opacity"

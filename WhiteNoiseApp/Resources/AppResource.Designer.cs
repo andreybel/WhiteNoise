@@ -457,6 +457,15 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на timer started.
+        /// </summary>
+        internal static string TimerStarted {
+            get {
+                return ResourceManager.GetString("TimerStarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на train.
         /// </summary>
         internal static string Train {
