@@ -39,5 +39,11 @@ namespace WhiteNoiseApp.Constants
         public const string Laminator = "laminator.mp3";
         public const string Calculator = "calculator.mp3";
         public const string Sail = "sail.mp3";
+        public const string Guitar = "guitar.mp3";
+        public const string ElectricGuitar = "electric_guitar.mp3";
+        public const string Xylophone = "xylophone.mp3";
+        public const string Saxophone = "saxophone.mp3";
+        public const string Piano = "piano.mp3";
+        public const string Meditation = "meditation.mp3";
     }
 }

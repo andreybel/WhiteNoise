@@ -160,6 +160,15 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на amp.
+        /// </summary>
+        internal static string ElectricGuitar {
+            get {
+                return ResourceManager.GetString("ElectricGuitar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на fireplace.
         /// </summary>
         internal static string Fireplace {
@@ -183,6 +192,15 @@ namespace WhiteNoiseApp.Resources {
         internal static string Forest {
             get {
                 return ResourceManager.GetString("Forest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на guitar.
+        /// </summary>
+        internal static string Guitar {
+            get {
+                return ResourceManager.GetString("Guitar", resourceCulture);
             }
         }
         
@@ -223,6 +241,15 @@ namespace WhiteNoiseApp.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на instrumental.
+        /// </summary>
+        internal static string Instrumental {
+            get {
+                return ResourceManager.GetString("Instrumental", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на instruments.
         /// </summary>
         internal static string Instruments {
@@ -246,6 +273,15 @@ namespace WhiteNoiseApp.Resources {
         internal static string Laminator {
             get {
                 return ResourceManager.GetString("Laminator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на meditation.
+        /// </summary>
+        internal static string Meditation {
+            get {
+                return ResourceManager.GetString("Meditation", resourceCulture);
             }
         }
         
@@ -372,6 +408,15 @@ namespace WhiteNoiseApp.Resources {
         internal static string Sail {
             get {
                 return ResourceManager.GetString("Sail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на saxophone.
+        /// </summary>
+        internal static string Saxophone {
+            get {
+                return ResourceManager.GetString("Saxophone", resourceCulture);
             }
         }
         
@@ -525,6 +570,15 @@ namespace WhiteNoiseApp.Resources {
         internal static string Wind {
             get {
                 return ResourceManager.GetString("Wind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на xylophone.
+        /// </summary>
+        internal static string Xylophone {
+            get {
+                return ResourceManager.GetString("Xylophone", resourceCulture);
             }
         }
     }

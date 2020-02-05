@@ -40,6 +40,12 @@
         public static string Sail = "ic_sail.png";
         public static string Scissors = "ic_scissors.png";
         public static string Tambourine = "ic_tambourine.png";
+        public static string Guitar = "ic_guitar.png";
+        public static string ElectricGuitar = "ic_electric_guitar.png";
+        public static string Xylophone = "ic_xylophone.png";
+        public static string Saxophone = "ic_saxophone.png";
+        public static string Piano = "ic_piano.png";
+        public static string Meditation = "ic_meditation.png";
        
     }
 }

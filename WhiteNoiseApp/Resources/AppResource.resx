@@ -150,6 +150,9 @@
   <data name="Collection" xml:space="preserve">
     <value>collection</value>
   </data>
+  <data name="ElectricGuitar" xml:space="preserve">
+    <value>amp</value>
+  </data>
   <data name="Fireplace" xml:space="preserve">
     <value>fireplace</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Forest" xml:space="preserve">
     <value>forest</value>
+  </data>
+  <data name="Guitar" xml:space="preserve">
+    <value>guitar</value>
   </data>
   <data name="Harbor" xml:space="preserve">
     <value>harbor</value>
@@ -171,6 +177,9 @@
   <data name="Hurricane" xml:space="preserve">
     <value>hurricane</value>
   </data>
+  <data name="Instrumental" xml:space="preserve">
+    <value>instrumental</value>
+  </data>
   <data name="Instruments" xml:space="preserve">
     <value>instruments</value>
   </data>
@@ -179,6 +188,9 @@
   </data>
   <data name="Laminator" xml:space="preserve">
     <value>laminator</value>
+  </data>
+  <data name="Meditation" xml:space="preserve">
+    <value>meditation</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>min.</value>
@@ -221,6 +233,9 @@
   </data>
   <data name="Sail" xml:space="preserve">
     <value>sail</value>
+  </data>
+  <data name="Saxophone" xml:space="preserve">
+    <value>saxophone</value>
   </data>
   <data name="Scissors" xml:space="preserve">
     <value>scissors</value>
@@ -272,5 +287,8 @@
   </data>
   <data name="Wind" xml:space="preserve">
     <value>wind</value>
+  </data>
+  <data name="Xylophone" xml:space="preserve">
+    <value>xylophone</value>
   </data>
 </root>

@@ -96,12 +96,18 @@ namespace WhiteNoiseApp.ViewModels
                 },
                 new Category
                 {
-                    Title = AppResource.Instruments,
+                    Title = AppResource.Instrumental,
                     SoundsList = new ObservableCollection<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Harp, Icon = Helpers.ImageNameHelper.Harp, Path = Constants.Constants.Harp},
                         new SoundSample{Name=AppResource.Flute, Icon = Helpers.ImageNameHelper.Flute, Path = Constants.Constants.Flute},
-                        new SoundSample{Name=AppResource.Tambourine, Icon = Helpers.ImageNameHelper.Tambourine, Path = Constants.Constants.Tambourine}
+                        new SoundSample{Name=AppResource.Tambourine, Icon = Helpers.ImageNameHelper.Tambourine, Path = Constants.Constants.Tambourine},
+                        new SoundSample{Name=AppResource.Piano, Icon = Helpers.ImageNameHelper.Piano, Path = Constants.Constants.Piano},
+                        new SoundSample{Name=AppResource.Guitar, Icon = Helpers.ImageNameHelper.Guitar, Path = Constants.Constants.Guitar},
+                        new SoundSample{Name=AppResource.Xylophone, Icon = Helpers.ImageNameHelper.Xylophone, Path = Constants.Constants.Xylophone},
+                        new SoundSample{Name=AppResource.ElectricGuitar, Icon = Helpers.ImageNameHelper.ElectricGuitar, Path = Constants.Constants.ElectricGuitar},
+                        new SoundSample{Name=AppResource.Saxophone, Icon = Helpers.ImageNameHelper.Saxophone, Path = Constants.Constants.Saxophone},
+                        new SoundSample{Name=AppResource.Meditation, Icon = Helpers.ImageNameHelper.Meditation, Path = Constants.Constants.Meditation},
 
                     }
                 },

@@ -150,6 +150,9 @@
   <data name="Collection" xml:space="preserve">
     <value>Коллекция</value>
   </data>
+  <data name="ElectricGuitar" xml:space="preserve">
+    <value>электрогитара</value>
+  </data>
   <data name="Fireplace" xml:space="preserve">
     <value>камин</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Forest" xml:space="preserve">
     <value>лес</value>
+  </data>
+  <data name="Guitar" xml:space="preserve">
+    <value>гитара</value>
   </data>
   <data name="Harbor" xml:space="preserve">
     <value>варган</value>
@@ -171,6 +177,9 @@
   <data name="Hurricane" xml:space="preserve">
     <value>ураган</value>
   </data>
+  <data name="Instrumental" xml:space="preserve">
+    <value>инструментальная</value>
+  </data>
   <data name="Instruments" xml:space="preserve">
     <value>инструменты</value>
   </data>
@@ -179,6 +188,9 @@
   </data>
   <data name="Laminator" xml:space="preserve">
     <value>ламинатор</value>
+  </data>
+  <data name="Meditation" xml:space="preserve">
+    <value>медитация</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>мин.</value>
@@ -221,6 +233,9 @@
   </data>
   <data name="Sail" xml:space="preserve">
     <value>парусник</value>
+  </data>
+  <data name="Saxophone" xml:space="preserve">
+    <value>саксофон</value>
   </data>
   <data name="Scissors" xml:space="preserve">
     <value>ножницы</value>
@@ -272,5 +287,8 @@
   </data>
   <data name="Wind" xml:space="preserve">
     <value>ветер</value>
+  </data>
+  <data name="Xylophone" xml:space="preserve">
+    <value>ксилофон</value>
   </data>
 </root>

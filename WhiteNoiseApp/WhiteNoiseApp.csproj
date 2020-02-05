@@ -14,20 +14,23 @@
     <None Remove="Sounds\city.mp3" />
     <None Remove="Sounds\clock.mp3" />
     <None Remove="Sounds\coffeeMashine.mp3" />
+    <None Remove="Sounds\electric_guitar.mp3" />
     <None Remove="Sounds\fireplace.mp3" />
     <None Remove="Sounds\flute.mp3" />
     <None Remove="Sounds\forest.mp3" />
-    <None Remove="Sounds\harbor.mp3" />
+    <None Remove="Sounds\guitar.mp3" />
     <None Remove="Sounds\harp.mp3" />
     <None Remove="Sounds\helicopter.mp3" />
     <None Remove="Sounds\keyboard.mp3" />
     <None Remove="Sounds\laminator.mp3" />
+    <None Remove="Sounds\meditation.mp3" />
     <None Remove="Sounds\mixer.mp3" />
     <None Remove="Sounds\night.mp3" />
     <None Remove="Sounds\pen.mp3" />
     <None Remove="Sounds\pencil.mp3" />
-    <None Remove="Sounds\propeller.mp3" />
+    <None Remove="Sounds\piano.mp3" />
     <None Remove="Sounds\sail.mp3" />
+    <None Remove="Sounds\saxophone.mp3" />
     <None Remove="Sounds\scissors.mp3" />
     <None Remove="Sounds\sea.mp3" />
     <None Remove="Sounds\smallrain.mp3" />
@@ -39,6 +42,7 @@
     <None Remove="Sounds\train.mp3" />
     <None Remove="Sounds\underWater.mp3" />
     <None Remove="Sounds\wind.mp3" />
+    <None Remove="Sounds\xylophone.mp3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,20 +54,23 @@
     <EmbeddedResource Include="Sounds\city.mp3" />
     <EmbeddedResource Include="Sounds\clock.mp3" />
     <EmbeddedResource Include="Sounds\coffeeMashine.mp3" />
+    <EmbeddedResource Include="Sounds\electric_guitar.mp3" />
     <EmbeddedResource Include="Sounds\fireplace.mp3" />
     <EmbeddedResource Include="Sounds\flute.mp3" />
     <EmbeddedResource Include="Sounds\forest.mp3" />
-    <EmbeddedResource Include="Sounds\harbor.mp3" />
+    <EmbeddedResource Include="Sounds\guitar.mp3" />
     <EmbeddedResource Include="Sounds\harp.mp3" />
     <EmbeddedResource Include="Sounds\helicopter.mp3" />
     <EmbeddedResource Include="Sounds\keyboard.mp3" />
     <EmbeddedResource Include="Sounds\laminator.mp3" />
+    <EmbeddedResource Include="Sounds\meditation.mp3" />
     <EmbeddedResource Include="Sounds\mixer.mp3" />
     <EmbeddedResource Include="Sounds\night.mp3" />
     <EmbeddedResource Include="Sounds\pen.mp3" />
     <EmbeddedResource Include="Sounds\pencil.mp3" />
-    <EmbeddedResource Include="Sounds\propeller.mp3" />
+    <EmbeddedResource Include="Sounds\piano.mp3" />
     <EmbeddedResource Include="Sounds\sail.mp3" />
+    <EmbeddedResource Include="Sounds\saxophone.mp3" />
     <EmbeddedResource Include="Sounds\scissors.mp3" />
     <EmbeddedResource Include="Sounds\smallrain.mp3" />
     <EmbeddedResource Include="Sounds\sea.mp3" />
@@ -75,6 +82,7 @@
     <EmbeddedResource Include="Sounds\train.mp3" />
     <EmbeddedResource Include="Sounds\underWater.mp3" />
     <EmbeddedResource Include="Sounds\wind.mp3" />
+    <EmbeddedResource Include="Sounds\xylophone.mp3" />
   </ItemGroup>
 
   <ItemGroup>

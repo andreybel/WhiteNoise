@@ -72,8 +72,8 @@
                                                 </Grid.RowDefinitions>
                                                 <Image Grid.Row="0"
                                                        HorizontalOptions="Center"
-                                                       HeightRequest="60"
-                                                       WidthRequest="60"
+                                                       HeightRequest="55"
+                                                       WidthRequest="55"
                                                        Source="{Binding Icon}"/>
                                                 <Label Grid.Row="1" 
                                                         HorizontalOptions="Center"
