@@ -86,6 +86,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AiForms.Effects" Version="1.6.4" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.6.4" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.6.4" />
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />

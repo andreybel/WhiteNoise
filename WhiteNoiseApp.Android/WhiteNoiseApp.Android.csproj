@@ -67,6 +67,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AiForms.Effects">
+      <Version>1.6.4</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>2.6.4</Version>
     </PackageReference>
@@ -113,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Effects\BaseEffect.cs" />
+    <Compile Include="Effects\BorderPlatformEffect.cs" />
     <Compile Include="Effects\GradientBackgroundPlatformEffect.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

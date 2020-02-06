@@ -3,6 +3,8 @@
   <color name="primaryColor">#79b0cb</color>
   <color name="primaryLightColor">#abe2fe</color>
   <color name="primaryDarkColor">#48819a</color>
-  <color name="primaryTextColor">#000000</color>
-  <color name="secondaryTextColor">#000000</color>
+  <color name="primaryTextColor">#FFFFFF</color>
+  <color name="secondaryTextColor">#FFFFFF</color>
+  <color name="ListViewSelected">#96BCE3</color>
+  <color name="ListViewHighlighted">#E39696</color>
 </resources>

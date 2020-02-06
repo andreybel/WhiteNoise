@@ -9,17 +9,17 @@
              xmlns:resources="clr-namespace:WhiteNoiseApp.Resources;assembly=WhiteNoiseApp"
              xmlns:behaviors="clr-namespace:WhiteNoiseApp.Behaviors;assembly=WhiteNoiseApp"
              xmlns:converters="clr-namespace:WhiteNoiseApp.Converters;assembly=WhiteNoiseApp"
+             xmlns:aiEffects="clr-namespace:AiForms.Effects;assembly=AiForms.Effects"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
              xmlns:xeffects="clr-namespace:XamEffects;assembly=XamEffects"
              x:Class="WhiteNoiseApp.Views.SoundsPage"
              NavigationPage.HasNavigationBar="False"
-             x:Name="this"
-             Icon = "{x:Static helpers:ImageNameHelper.Sounds}">
+             x:Name="this">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:BoolToColorConverter x:Key="BoolToColorConverter"
-                                             FalseColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"
+                                             FalseColor="Transparent"
                                              TrueColor="{x:Static helpers:ColorsHelper.SecondaryColor}"/>
             <Style TargetType="iconize:IconLabel" x:Key="playerControl">
                 <Setter Property="FontSize" Value="32"/>
@@ -51,36 +51,36 @@
                             <StackLayout Margin="0" Padding="0" Spacing="15">
                                 <Label Text="{Binding Title}" Style="{StaticResource HeaderLabel}"/>
                                 <CollectionView 
-                                ItemsSource="{Binding SoundsList, Mode=TwoWay}" 
-                                SelectionMode="None">
+                                    ItemsSource="{Binding SoundsList, Mode=TwoWay}" 
+                                    SelectionMode="Single">
                                     <CollectionView.ItemsLayout>
                                         <GridItemsLayout Orientation="Vertical" 
                                          Span="3"
-                                         VerticalItemSpacing="5"
+                                         VerticalItemSpacing="7"
                                          HorizontalItemSpacing="5"/>
                                     </CollectionView.ItemsLayout>
                                     <CollectionView.ItemTemplate>
                                         <DataTemplate>
-                                            <Grid 
-                                            xeffects:TouchEffect.Color="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"
-                                            xeffects:EffectsConfig.ChildrenInputTransparent="True"
-                                            xeffects:Commands.Tap="{Binding Source={x:Reference this}, Path=BindingContext.PlaySoundCommand}"
-                                            xeffects:Commands.TapParameter="{Binding .}">
-                                                <Grid.RowDefinitions >
-                                                    <RowDefinition Height="Auto"/>
-                                                    <RowDefinition Height="25"/>
-                                                </Grid.RowDefinitions>
+                                            <FlexLayout
+                                                Direction="Column"
+                                                JustifyContent="Center"
+                                                AlignItems="Center"
+                                                aiEffects:Border.On="True"
+                                                aiEffects:Border.Radius="10"
+                                                xeffects:TouchEffect.Color="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"
+                                                xeffects:EffectsConfig.ChildrenInputTransparent="True"
+                                                xeffects:Commands.Tap="{Binding Source={x:Reference this}, Path=BindingContext.PlaySoundCommand}"
+                                                xeffects:Commands.TapParameter="{Binding .}">
                                                 <Image Grid.Row="0"
                                                        HorizontalOptions="Center"
-                                                       HeightRequest="55"
-                                                       WidthRequest="55"
-                                                       Source="{Binding Icon}"/>
-                                                <Label Grid.Row="1" 
+                                                       Source="{Binding Icon}"
+                                                       Scale=".9"/>
+                                                <!--<Label Grid.Row="1" 
                                                         HorizontalOptions="Center"
                                                         Text="{Binding Name}" 
                                                         FontSize="16" 
-                                                        TextColor="White" Opacity=".75"/>
-                                            </Grid>
+                                                        TextColor="White" Opacity=".75"/>-->
+                                            </FlexLayout>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
                                 </CollectionView>

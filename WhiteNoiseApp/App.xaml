@@ -23,7 +23,7 @@
             </Style>
             <Style TargetType="Label" x:Key="HeaderLabel">
                 <Setter Property="FontSize"
-                        Value="25"/>
+                        Value="23"/>
                 <Setter Property="TextColor"
                         Value="White"/>
                 <Setter Property="Opacity"
@@ -32,6 +32,8 @@
                         Value="{StaticResource montserrat}"/>
                 <Setter Property="HorizontalOptions"
                         Value="Center"/>
+                <Setter Property="Margin"
+                        Value="5,5,5,15"/>
             </Style>
             <Style TargetType="Frame" x:Key="PlayerFrame">
                 <Setter Property="BackgroundColor"
