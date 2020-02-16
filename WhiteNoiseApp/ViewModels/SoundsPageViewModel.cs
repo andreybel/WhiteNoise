@@ -48,7 +48,7 @@ namespace WhiteNoiseApp.ViewModels
                 new Category
                 {
                     Title = AppResource.Nature,
-                    ControlColor = Color.Green,
+                    BackgroundImage = Helpers.ImageNameHelper.BgImage,
                     SoundsList = new ObservableCollection<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Fireplace, Icon = Helpers.ImageNameHelper.FirePLace, Path = Constants.Constants.Fireplace},
@@ -65,7 +65,7 @@ namespace WhiteNoiseApp.ViewModels
                 new Category
                 {
                     Title = AppResource.Technick,
-                    ControlColor = Color.Red,
+                    BackgroundImage = Helpers.ImageNameHelper.BgImage1,
                     SoundsList = new ObservableCollection<SoundSample>
                     {
                         new SoundSample{Name=AppResource.City, Icon = Helpers.ImageNameHelper.City, Path = Constants.Constants.City},
@@ -82,7 +82,7 @@ namespace WhiteNoiseApp.ViewModels
                 new Category
                 {
                     Title = AppResource.ASMR,
-                    ControlColor = Color.Violet,
+                    BackgroundImage = Helpers.ImageNameHelper.BgImage2,
                     SoundsList = new ObservableCollection<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Cats, Icon = Helpers.ImageNameHelper.Cat, Path = Constants.Constants.Cat},
@@ -100,7 +100,7 @@ namespace WhiteNoiseApp.ViewModels
                 new Category
                 {
                     Title = AppResource.Instrumental,
-                    ControlColor = Color.AliceBlue,
+                    BackgroundImage = Helpers.ImageNameHelper.BgImage3,
                     SoundsList = new ObservableCollection<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Harp, Icon = Helpers.ImageNameHelper.Harp, Path = Constants.Constants.Harp},
@@ -123,19 +123,7 @@ namespace WhiteNoiseApp.ViewModels
         #region properties
 
 
-        private Category _category;
-        public Category Category
-        {
-            get => _category;
-            set => SetProperty(ref _category, value);
-        }
-
-        private SoundSample _selectedCategory;
-        public SoundSample SelectedCategory
-        {
-            get => _selectedCategory;
-            set => SetProperty(ref _selectedCategory, value);
-        }
+       
 
         private ObservableCollection<Category> _categories;
         public ObservableCollection<Category> Categories
@@ -151,7 +139,21 @@ namespace WhiteNoiseApp.ViewModels
             set => SetProperty(ref _soundSamples, value);
         }
 
+        private string _backGroundImage;
+        public string BGImage
+        {
+            get => _backGroundImage;
+            set => SetProperty(ref _backGroundImage, value, OnChangeImage);
+        }
 
+        private void OnChangeImage()
+        {
+            foreach (var category in Categories)
+            {
+                _backGroundImage = category.BackgroundImage;
+                RaisePropertyChanged(BGImage);
+            }
+        }
         #endregion
 
         #region commands

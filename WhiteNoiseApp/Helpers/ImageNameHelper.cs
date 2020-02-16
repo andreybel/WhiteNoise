@@ -46,6 +46,10 @@
         public static string Saxophone = "ic_saxophone.png";
         public static string Piano = "ic_piano.png";
         public static string Meditation = "ic_meditation.png";
+        public static string BgImage = "bgimage.png";
+        public static string BgImage1 = "bgimage_1.png";
+        public static string BgImage2 = "bgimage_2.png";
+        public static string BgImage3 = "bgimage_3.png";
        
     }
 }
