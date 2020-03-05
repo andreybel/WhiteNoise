@@ -45,6 +45,7 @@
                 <CarouselView Grid.Row="0" 
                               ItemsSource="{Binding Categories}"
                               x:Name="soundsCarousel"
+                              IndicatorView="indicatorView"
                               BackgroundColor="Transparent">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
@@ -75,11 +76,6 @@
                                                        HorizontalOptions="Center"
                                                        Source="{Binding Icon}"
                                                        Scale=".9"/>
-                                                <!--<Label Grid.Row="1" 
-                                                        HorizontalOptions="Center"
-                                                        Text="{Binding Name}" 
-                                                        FontSize="16" 
-                                                        TextColor="White" Opacity=".75"/>-->
                                             </FlexLayout>
                                         </DataTemplate>
                                     </CollectionView.ItemTemplate>
@@ -124,6 +120,7 @@
                     </Grid>
                 </Frame>
                 <IndicatorView Grid.Row="2"
+                               x:Name="indicatorView"
                                VerticalOptions="Center"
                                IndicatorColor="White"
                                SelectedIndicatorColor="{x:Static helpers:ColorsHelper.SecondaryColor}"
@@ -131,8 +128,7 @@
                                IndicatorSize="10"
                                HorizontalOptions="Center"
                                MaximumVisible="5"
-                               BackgroundColor="Transparent"
-                               IndicatorView.ItemsSourceBy="soundsCarousel"/>
+                               BackgroundColor="Transparent"/>
             </Grid>
         </effects:GradientBackgroundEffect>
     </ContentPage.Content>
