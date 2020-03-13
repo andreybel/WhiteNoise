@@ -4,10 +4,11 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace WhiteNoiseApp.ViewModels
 {
-    public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible
+    public class ViewModelBase : BindableBase, IInitialize, IInitializeAsync, INavigationAware, IDestructible
     {
 
         #region propeties
@@ -48,7 +49,10 @@ namespace WhiteNoiseApp.ViewModels
         {
 
         }
-
+        public virtual Task InitializeAsync(INavigationParameters parameters)
+        {
+            return Task.CompletedTask;
+        }
         public virtual void OnNavigatedFrom(INavigationParameters parameters)
         {
 

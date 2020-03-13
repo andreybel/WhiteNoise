@@ -68,6 +68,7 @@ namespace WhiteNoiseApp
             containerRegistry.RegisterForNavigation<TimerPopupPage, TimerPopupPageViewModel>();
 
             containerRegistry.Register<IAudioPlayerService, AudioPlayerService>();
+            containerRegistry.Register<ISoundsService, SoundsService>();
         }
 
         protected override void OnStart()
