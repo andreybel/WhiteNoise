@@ -2,7 +2,6 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
-using Octane.Xamarin.Forms.VideoPlayer.Android;
 using Prism;
 using Prism.Ioc;
 using WhiteNoiseApp.Droid.Services;
@@ -25,7 +24,6 @@ namespace WhiteNoiseApp.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.Essentials.Platform.Init(this, bundle);
             Rg.Plugins.Popup.Popup.Init(this,bundle);
-            FormsVideoPlayer.Init();
             AiForms.Effects.Droid.Effects.Init();
             XamEffects.Droid.Effects.Init();
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);

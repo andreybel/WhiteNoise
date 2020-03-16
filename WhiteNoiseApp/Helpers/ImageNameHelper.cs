@@ -50,11 +50,6 @@
         public static string BgImage1 = "bgimage_1.png";
         public static string BgImage2 = "bgimage_2.png";
         public static string BgImage3 = "bgimage_3.png";
-
-        public static string AsmrVideo = "asmr.mp4";
-        public static string NatureVideo = "nature.mp4";
-        public static string MusicVideo = "guitar.mp4";
-        public static string TechnicVideo = "traffic.mp4";
        
     }
 }

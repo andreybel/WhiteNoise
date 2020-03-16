@@ -5,6 +5,7 @@ using System.Text;
 using WhiteNoiseApp.Interfaces;
 using WhiteNoiseApp.Models;
 using WhiteNoiseApp.Resources;
+using Xamarin.Forms;
 
 namespace WhiteNoiseApp.Services
 {
@@ -18,6 +19,7 @@ namespace WhiteNoiseApp.Services
                 {
                     Title = AppResource.Nature,
                     BackgroundImage = Helpers.ImageNameHelper.BgImage,
+                    GradientEndColor = Color.DarkSeaGreen,
                     SoundsList = new List<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Fireplace, Icon = Helpers.ImageNameHelper.FirePLace, Path = Constants.Constants.Fireplace},
@@ -35,6 +37,7 @@ namespace WhiteNoiseApp.Services
                 {
                     Title = AppResource.Technick,
                     BackgroundImage = Helpers.ImageNameHelper.BgImage1,
+                    GradientEndColor = Color.DarkTurquoise,
                     SoundsList = new List<SoundSample>
                     {
                         new SoundSample{Name=AppResource.City, Icon = Helpers.ImageNameHelper.City, Path = Constants.Constants.City},
@@ -52,6 +55,7 @@ namespace WhiteNoiseApp.Services
                 {
                     Title = AppResource.ASMR,
                     BackgroundImage = Helpers.ImageNameHelper.BgImage2,
+                    GradientEndColor = Color.DarkSalmon,
                     SoundsList = new List<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Cats, Icon = Helpers.ImageNameHelper.Cat, Path = Constants.Constants.Cat},
@@ -70,6 +74,7 @@ namespace WhiteNoiseApp.Services
                 {
                     Title = AppResource.Instrumental,
                     BackgroundImage = Helpers.ImageNameHelper.BgImage3,
+                    GradientEndColor = Color.DarkGray,
                     SoundsList = new List<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Harp, Icon = Helpers.ImageNameHelper.Harp, Path = Constants.Constants.Harp},

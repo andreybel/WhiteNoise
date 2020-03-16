@@ -65,8 +65,15 @@ namespace WhiteNoiseApp.ViewModels
         public Category CurrentCategory
         {
             get => _currentCategory;
-            set => SetProperty(ref _currentCategory, value)
-;       }
+            set => SetProperty(ref _currentCategory, value);
+       }
+
+        private SoundSample _currentSound;
+        public SoundSample CurrentSound
+        {
+            get => _currentSound;
+            set => SetProperty(ref _currentSound, value);
+        }
         #endregion
 
         #region commands
@@ -83,6 +90,7 @@ namespace WhiteNoiseApp.ViewModels
             {
                 IsPlaying = true;
                 IsPaused = true;
+                soundSample.IconSize = 0.9;
                 _audioPLayerService.Play(soundSample.Path, true);
             }
         }

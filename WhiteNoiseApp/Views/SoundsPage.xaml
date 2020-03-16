@@ -10,7 +10,6 @@
              xmlns:behaviors="clr-namespace:WhiteNoiseApp.Behaviors;assembly=WhiteNoiseApp"
              xmlns:converters="clr-namespace:WhiteNoiseApp.Converters;assembly=WhiteNoiseApp"
              xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:videoplayer="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
              xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
              xmlns:aiEffects="clr-namespace:AiForms.Effects;assembly=AiForms.Effects"
              prism:ViewModelLocator.AutowireViewModel="True"
@@ -36,106 +35,100 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <effects:GradientBackgroundEffect StartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"
-                                              EndColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}">
-        <Grid Margin="0" Padding="0"
+        <pancakeview:PancakeView
+            BackgroundGradientStartColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"
+                                     BackgroundGradientEndColor="{Binding CurrentCategory.GradientEndColor}"
+            BackgroundGradientAngle="45">
+            <Grid Margin="0" Padding="0"
                   CompressedLayout.IsHeadless="True">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="50"/>
-            </Grid.RowDefinitions>
-            <Image Source="{Binding CurrentCategory.BackgroundImage}"
-                                     Grid.Row="0"
-                                     Grid.RowSpan="3"
-                                     Opacity=".3"
-                                     HorizontalOptions="Fill"
-                                     VerticalOptions="Fill"
-                                     Aspect="Fill"/>
-            <CarouselView Grid.Row="0" 
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <CarouselView Grid.Row="0" 
                               ItemsSource="{Binding Categories}"
                               x:Name="soundsCarousel"
                               IndicatorView="indicatorView"
                               BackgroundColor="Transparent"
                               CurrentItem="{Binding CurrentCategory}">
-                <CarouselView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Margin="0" Padding="0" Spacing="15">
-                            <Label Text="{Binding Title}" Style="{StaticResource HeaderLabel}"/>
-                            <CollectionView 
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="0" Padding="0" Spacing="15">
+                                <Label Text="{Binding Title}" Style="{StaticResource HeaderLabel}"/>
+                                <CollectionView 
                                     ItemsSource="{Binding SoundsList, Mode=TwoWay}" 
-                                    SelectionMode="Single">
-                                <CollectionView.ItemsLayout>
-                                    <GridItemsLayout Orientation="Vertical" 
+                                    SelectionMode="Single"
+                                    SelectedItem="{Binding CurrentSound}">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Vertical" 
                                          Span="3"
                                          VerticalItemSpacing="7"
                                          HorizontalItemSpacing="5"/>
-                                </CollectionView.ItemsLayout>
-                                <CollectionView.ItemTemplate>
-                                    <DataTemplate>
-                                        <FlexLayout
-                                                Direction="Column"
-                                                JustifyContent="Center"
-                                                AlignItems="Center"
-                                                aiEffects:Border.On="True"
-                                                aiEffects:Border.Radius="10"
-                                                xeffects:TouchEffect.Color="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"
-                                                xeffects:EffectsConfig.ChildrenInputTransparent="True"
-                                                xeffects:Commands.Tap="{Binding Source={x:Reference this}, Path=BindingContext.PlaySoundCommand}"
-                                                xeffects:Commands.TapParameter="{Binding .}">
-                                            <Image Grid.Row="0"
-                                                       HorizontalOptions="Center"
-                                                       Source="{Binding Icon}"
-                                                       Scale=".9"/>
-                                        </FlexLayout>
-                                    </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </StackLayout>
-                    </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
-            <pancakeview:PancakeView Grid.Row="1" 
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Image 
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center"
+                                                    Source="{Binding Icon}"
+                                                    Scale="{Binding IconSize}"
+                                                    aiEffects:Border.On="True"
+                                                    aiEffects:Border.Radius="10"
+                                                    xeffects:TouchEffect.Color="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"
+                                                    xeffects:EffectsConfig.ChildrenInputTransparent="True"
+                                                    xeffects:Commands.Tap="{Binding Source={x:Reference this}, Path=BindingContext.PlaySoundCommand}"
+                                                    xeffects:Commands.TapParameter="{Binding .}"/>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <pancakeview:PancakeView Grid.Row="1" 
                        IsVisible="{Binding IsPlaying}"
-                                     BackgroundGradientStartColor="{x:Static helpers:ColorsHelper.PrimaryLightColor}"
-                                     BackgroundGradientEndColor="{x:Static helpers:ColorsHelper.SecondaryColor}"
+                                     BackgroundGradientStartColor="{x:Static helpers:ColorsHelper.PrimaryColor}"    
+                                     BackgroundGradientEndColor="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"    
                                      CornerRadius="25"
                                      HasShadow="True"
-                                     BorderGradientAngle="180"
-                                     Margin="25">
-                <Grid Margin="0" Padding="0" HorizontalOptions="Center" ColumnSpacing="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="50"/>
-                    </Grid.ColumnDefinitions>
-                    <iconize:IconLabel Grid.Column="0"
+                                     Margin="25"
+                                     Padding="5"
+                                     HeightRequest="60"
+                                     HorizontalOptions="Center">
+                    <Grid Margin="0" Padding="0" HorizontalOptions="Center" ColumnSpacing="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconLabel Grid.Column="0"
                                             Text="fas-stop-circle"
                                            Style="{x:StaticResource playerControl}"
                                            xeffects:Commands.Tap="{Binding StopCommand}"/>
-                    <iconize:IconLabel Grid.Column="1"
+                        <iconize:IconLabel Grid.Column="1"
                                            Text="fas-pause"
                                            IsVisible="{Binding IsPaused}"
                                            Style="{x:StaticResource playerControl}"
                                            xeffects:Commands.Tap="{Binding PauseCommand}"/>
-                    <iconize:IconLabel Grid.Column="1"
+                        <iconize:IconLabel Grid.Column="1"
                                            Text="fas-play"
                                            IsVisible="{Binding IsPaused, Converter={converters:InverseBooleanConverter}}"
                                            Style="{x:StaticResource playerControl}"
                                            xeffects:Commands.Tap="{Binding PauseCommand}"/>
-                    <iconize:IconLabel Grid.Column="2"
+                        <iconize:IconLabel Grid.Column="2"
                                            Text="fas-volume-up"
                                            Style="{x:StaticResource playerControl}"
                                            xeffects:Commands.Tap="{Binding VolumeCommand}"/>
-                    <Image Source="{x:Static helpers:ImageNameHelper.SoundTimer}"
+                        <Image Source="{x:Static helpers:ImageNameHelper.SoundTimer}"
                                Grid.Column="3"
                                Margin="0"
                                xeffects:TouchEffect.Color="{x:Static helpers:ColorsHelper.PrimaryDarkColor}"
                                xeffects:Commands.Tap="{Binding TimerCommand}"/>
-                </Grid>
-            </pancakeview:PancakeView>
-            <IndicatorView Grid.Row="2"
+                    </Grid>
+                </pancakeview:PancakeView>
+                <IndicatorView Grid.Row="2"
                                x:Name="indicatorView"
                                VerticalOptions="Center"
                                IndicatorColor="White"
@@ -145,7 +138,7 @@
                                HorizontalOptions="Center"
                                MaximumVisible="5"
                                BackgroundColor="Transparent"/>
-        </Grid>
-        </effects:GradientBackgroundEffect>
+            </Grid>
+        </pancakeview:PancakeView>
     </ContentPage.Content>
 </ContentPage>
