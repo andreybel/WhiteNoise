@@ -10,7 +10,7 @@ namespace WhiteNoiseApp.Models
     {
         public string Title { get; set; }
         public string BackgroundImage { get; set; }
-        public ObservableCollection<SoundSample> SoundsList { get; set; }
+        public List<SoundSample> SoundsList { get; set; }
 
         public SoundSample SelectedSound { get; set; }
     }

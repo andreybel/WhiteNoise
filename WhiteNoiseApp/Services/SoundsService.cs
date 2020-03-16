@@ -10,15 +10,15 @@ namespace WhiteNoiseApp.Services
 {
     public class SoundsService : ISoundsService
     {
-        public ObservableCollection<Category> GetOfflineLibrary()
+        public List<Category> GetOfflineLibrary()
         {
-            return new ObservableCollection<Category>
+            return new List<Category>
             {
                 new Category
                 {
                     Title = AppResource.Nature,
                     BackgroundImage = Helpers.ImageNameHelper.BgImage,
-                    SoundsList = new ObservableCollection<SoundSample>
+                    SoundsList = new List<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Fireplace, Icon = Helpers.ImageNameHelper.FirePLace, Path = Constants.Constants.Fireplace},
                         new SoundSample{Name=AppResource.Forest, Icon=Helpers.ImageNameHelper.Forest, Path = Constants.Constants.Forest},
@@ -35,7 +35,7 @@ namespace WhiteNoiseApp.Services
                 {
                     Title = AppResource.Technick,
                     BackgroundImage = Helpers.ImageNameHelper.BgImage1,
-                    SoundsList = new ObservableCollection<SoundSample>
+                    SoundsList = new List<SoundSample>
                     {
                         new SoundSample{Name=AppResource.City, Icon = Helpers.ImageNameHelper.City, Path = Constants.Constants.City},
                         new SoundSample{Name=AppResource.Helicopter, Icon = Helpers.ImageNameHelper.Helicopter, Path = Constants.Constants.Helicopter},
@@ -52,7 +52,7 @@ namespace WhiteNoiseApp.Services
                 {
                     Title = AppResource.ASMR,
                     BackgroundImage = Helpers.ImageNameHelper.BgImage2,
-                    SoundsList = new ObservableCollection<SoundSample>
+                    SoundsList = new List<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Cats, Icon = Helpers.ImageNameHelper.Cat, Path = Constants.Constants.Cat},
                         new SoundSample{Name=AppResource.Birds, Icon = Helpers.ImageNameHelper.Bird, Path = Constants.Constants.Birds},
@@ -70,7 +70,7 @@ namespace WhiteNoiseApp.Services
                 {
                     Title = AppResource.Instrumental,
                     BackgroundImage = Helpers.ImageNameHelper.BgImage3,
-                    SoundsList = new ObservableCollection<SoundSample>
+                    SoundsList = new List<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Harp, Icon = Helpers.ImageNameHelper.Harp, Path = Constants.Constants.Harp},
                         new SoundSample{Name=AppResource.Flute, Icon = Helpers.ImageNameHelper.Flute, Path = Constants.Constants.Flute},

@@ -46,7 +46,8 @@ namespace WhiteNoiseApp.ViewModels
             _toastMessage = toastMessage;
             _soundsService = soundsService;
 
-            Categories = _soundsService.GetOfflineLibrary();
+            var categories = _soundsService.GetOfflineLibrary();
+            Categories = new ObservableCollection<Category>(categories);
 
             if (_audioPLayerService.IsPlaying())
                 IsPlaying = true;
@@ -59,6 +60,13 @@ namespace WhiteNoiseApp.ViewModels
             get => _categories;
             set => SetProperty(ref _categories, value);
         }
+
+        private Category _currentCategory;
+        public Category CurrentCategory
+        {
+            get => _currentCategory;
+            set => SetProperty(ref _currentCategory, value)
+;       }
         #endregion
 
         #region commands
@@ -131,6 +139,20 @@ namespace WhiteNoiseApp.ViewModels
             }
 
             base.OnNavigatedTo(parameters);
+        }
+
+        public override async Task InitializeAsync(INavigationParameters parameters)
+        {
+            try
+            {
+                // some code
+            }
+            finally
+            {
+                Debug.WriteLine("InitializeAsync()");
+                await base.InitializeAsync(parameters);
+            }
+            
         }
         #endregion
 

@@ -8,6 +8,6 @@ namespace WhiteNoiseApp.Interfaces
 {
     public interface ISoundsService
     {
-        ObservableCollection<Category> GetOfflineLibrary();
+        List<Category> GetOfflineLibrary();
     }
 }

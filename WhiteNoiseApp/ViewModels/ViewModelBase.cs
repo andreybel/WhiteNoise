@@ -41,10 +41,6 @@ namespace WhiteNoiseApp.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        public ViewModelBase()
-        {
-        }
-
         public virtual void Initialize(INavigationParameters parameters)
         {
 
