@@ -37,7 +37,7 @@ namespace WhiteNoiseApp.Services
                 {
                     Title = AppResource.Technick,
                     BackgroundImage = Helpers.ImageNameHelper.BgImage1,
-                    GradientEndColor = Color.DarkTurquoise,
+                    GradientEndColor = Color.FromHex("#66e1e3"),
                     SoundsList = new List<SoundSample>
                     {
                         new SoundSample{Name=AppResource.City, Icon = Helpers.ImageNameHelper.City, Path = Constants.Constants.City},
@@ -55,7 +55,7 @@ namespace WhiteNoiseApp.Services
                 {
                     Title = AppResource.ASMR,
                     BackgroundImage = Helpers.ImageNameHelper.BgImage2,
-                    GradientEndColor = Color.DarkSalmon,
+                    GradientEndColor = Color.FromHex("#99ebec"),
                     SoundsList = new List<SoundSample>
                     {
                         new SoundSample{Name=AppResource.Cats, Icon = Helpers.ImageNameHelper.Cat, Path = Constants.Constants.Cat},

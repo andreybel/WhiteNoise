@@ -133,6 +133,8 @@
     <AndroidAsset Include="Assets\Font Awesome 5 Free-Solid-900.otf" />
     <AndroidAsset Include="Assets\Roboto-Regular.ttf" />
     <AndroidAsset Include="Assets\Montserrat-Medium.ttf" />
+    <AndroidAsset Include="Assets\music_anim.json" />
+    <AndroidAsset Include="Assets\nature_anim.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>

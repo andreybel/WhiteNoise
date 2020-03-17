@@ -9,8 +9,6 @@ namespace WhiteNoiseApp.Helpers
         public static Color PrimaryDarkColor = Color.FromHex("#48819a");
         public static Color SecondaryColor = Color.FromHex("#dadb6b");
         public static Color DarkTextColor = Color.FromHex("#2b2b2b");
-        public static Color GradientEndColor = Color.FromHex("#d6c9fb");
-        public static Color GradientEndColorSecondary = Color.FromHex("#dadb6b");
         public static Color TapEffectColor = Color.FromHex("#536c98");
 
     }

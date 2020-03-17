@@ -87,6 +87,7 @@
 
   <ItemGroup>
     <PackageReference Include="AiForms.Effects" Version="1.6.7" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.1.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.0.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.0.0" />
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
